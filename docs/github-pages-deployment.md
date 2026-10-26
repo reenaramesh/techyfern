@@ -13,37 +13,31 @@ configure a custom domain or deploy the Django backend.
 - Actual deployed URL: not verified; the remote repository and Pages settings
   have not been configured.
 
-The GitHub repository exists and is currently empty (no branches or commits).
-The local workspace is not yet connected to it. Before pushing, review the
-complete source for material that should remain private. Environment files,
-local databases, Python environments, build output, caches, and common private
-credential files are excluded by `.gitignore`. Do not commit secrets or
-customer records.
+The GitHub repository exists and was empty when checked (no branches or
+commits). The workspace is now initialized locally on `main`, with the
+repository configured as `origin`. Its initial website commit has not yet
+been pushed because GitHub credentials are not available to this session.
+Environment files, local databases, Python environments, build output, caches,
+and common private credential files are excluded by `.gitignore`. Do not
+commit secrets or customer records.
 
 ## One-time GitHub setup
 
 1. The repository already exists at
    <https://github.com/reenaramesh/techyfern> and its default branch is `main`.
    It is public; review the source for material that should remain private.
-2. This workspace has no Git history yet. After reviewing the files to be
-   published and ensuring no secrets or private data are present, initialize
-   and review an initial commit:
+2. The local workspace has an initial commit. Review its staged/pushed state
+   with `git status --short --branch` and `git log -1 --oneline`. Once GitHub
+   authentication is available in the local credential manager, publish the
+   `main` branch:
 
    ```powershell
-   git init --initial-branch=main
-   git status --short --ignored
-   git add .
-   git status --short
-   git diff --cached --check
-   git diff --cached --name-only
-   git commit -m "Initial Techyfern Digital website"
-   git remote add origin https://github.com/reenaramesh/techyfern.git
    git push -u origin main
    ```
 
-   Do not commit ignored files. If the remote repository was initialized with
-   a README or other commit, fetch and integrate that history before pushing;
-   never force-push or replace existing history.
+   No remote commits or branches existed when checked. If the remote
+   repository has since changed, fetch and integrate any new history before
+   pushing; never force-push or replace existing history.
 3. In the GitHub repository, open **Settings → Pages** and select **GitHub
    Actions** as the build and deployment source. No custom domain is needed.
 4. Push to `main`, then open **Actions → Deploy Techyfern Digital to GitHub
