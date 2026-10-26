@@ -1,0 +1,16 @@
+Options -MultiViews
+RewriteEngine On
+
+# Keep historic service URLs as permanent redirects to the canonical routes.
+RewriteRule ^services/website-design/?$ /website-design/ [R=301,L]
+RewriteRule ^services/web-applications/?$ /web-app-development/ [R=301,L]
+RewriteRule ^services/digital-marketing/?$ /digital-marketing/ [R=301,L]
+RewriteRule ^services/business-technology/?$ /business-tech-solutions/ [R=301,L]
+RewriteRule ^services/ai-automation/?$ /ai-automation/ [R=301,L]
+
+# Prerendered route folders are served directly; unknown paths return the
+# static not-found page with an HTTP 404 response.
+ErrorDocument 404 /404.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [R=404,L]

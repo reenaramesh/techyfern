@@ -1,0 +1,3 @@
+# Intentionally closed while the production domain and launch readiness are unconfirmed.
+User-agent: *
+Disallow: /
