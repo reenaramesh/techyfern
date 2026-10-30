@@ -18,8 +18,22 @@ export function PortfolioPage() {
     return portfolioProjects.filter((project) => {
       const matchesCategory =
         activeCategory === "All projects" || project.category === activeCategory;
-      const matchesName = project.title.toLocaleLowerCase().includes(query);
-      return matchesCategory && matchesName;
+      const searchableContent = [
+        project.title,
+        project.category,
+        project.summary,
+        project.industry,
+        project.challenge,
+        project.approach,
+        ...project.scope,
+        ...project.features,
+        ...project.process,
+        ...project.technologies,
+        ...project.relatedServices.map((service) => service.label),
+      ]
+        .join(" ")
+        .toLocaleLowerCase();
+      return matchesCategory && searchableContent.includes(query);
     });
   }, [activeCategory, searchTerm]);
   const approvedProjects = visibleProjects.filter(
@@ -86,10 +100,12 @@ export function PortfolioPage() {
             </div>
             <label className="portfolio-search">
               <Search aria-hidden="true" size={17} />
-              <span className="visually-hidden">Search by project name</span>
+              <span className="visually-hidden">
+                Search projects by name, service, description or technology
+              </span>
               <input
                 onChange={(event) => setSearchTerm(event.currentTarget.value)}
-                placeholder="Search projects"
+                placeholder="Search name, service or technology"
                 type="search"
                 value={searchTerm}
               />

@@ -26,13 +26,22 @@ export function PortfolioVisual({
       <div className="portfolio-visual-window">
         <div className="portfolio-visual-toolbar">
           <span className="portfolio-window-dots"><i /><i /><i /></span>
-          <span className="portfolio-window-label">CONCEPT PREVIEW</span>
+          <span className="portfolio-window-label">
+            {project.kind === "concept" ? "CONCEPT PREVIEW" : "CASE STUDY"}
+          </span>
           <ArrowUpRight size={14} />
         </div>
         <div className="portfolio-visual-content">
           <div className="portfolio-visual-heading">
             <span className="portfolio-visual-icon"><Icon size={17} /></span>
-            <span><b>{project.title}</b><small>Illustrative interface</small></span>
+            <span>
+              <b>{project.title}</b>
+              <small>
+                {project.kind === "concept"
+                  ? "Illustrative interface"
+                  : "Project overview"}
+              </small>
+            </span>
           </div>
           {project.visual === "website" && (
             <div className="portfolio-website-preview">

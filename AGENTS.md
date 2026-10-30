@@ -1,4 +1,4 @@
-# Techyfern Digital — Agent Instructions
+# TechyPraxis Digital — Agent Instructions
 
 These instructions apply to GitHub Copilot and OpenAI Codex. Follow them for all work in this repository.
 
@@ -23,6 +23,12 @@ These instructions apply to GitHub Copilot and OpenAI Codex. Follow them for all
 
 ## Branding and content
 
+- The approved public name is **TechyPraxis Digital**. Use
+  `public/brand/techypraxis-logo.png` for shared site branding.
+- The approved brand colors are indigo `#3730A3` and amber `#F59E0B`.
+  Use pale indigo `#EEF2FF`, pale amber `#FFFBEB`, charcoal `#334155`, and
+  white `#FFFFFF` as supporting colors. Use charcoal for readable body text;
+  do not use amber for small text on white.
 - Use only brand names, logos, colors, typography, imagery, and messaging provided in the repository or explicitly approved by the user.
 - Do not fabricate client reviews, testimonials, customer counts, case studies, awards, credentials, results, or business achievements.
 - Do not present placeholder claims or invented contact details as facts. Mark genuinely necessary placeholders clearly and keep them out of production-facing content until approved.
@@ -31,6 +37,13 @@ These instructions apply to GitHub Copilot and OpenAI Codex. Follow them for all
 ## Shared UI and design
 
 - Maintain a consistent visual language across all pages by reusing shared components, layout primitives, design tokens, and Tailwind conventions.
+- Use indigo for headings and primary brand elements, amber for primary CTA
+  backgrounds with dark text, and alternate white and pale-indigo section
+  backgrounds. Reserve pale amber and deep indigo sections for purposeful
+  emphasis; use white text and visible amber accents on deep indigo.
+- Keep cards white with subtle borders and consistent hover states. Apply
+  amber to meaningful icons, selected states, decorative details, and keyboard
+  focus without making pages visually cluttered.
 - Build responsive layouts for small, medium, and large viewports. Avoid horizontal overflow and ensure interactive controls remain usable on touch devices.
 - Use semantic HTML, accessible names and labels, logical heading order, visible keyboard focus, keyboard-operable controls, and sufficient color contrast.
 - Respect reduced-motion preferences. Do not use color alone to convey meaning.

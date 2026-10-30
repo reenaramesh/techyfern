@@ -117,7 +117,7 @@ function PrivacyConsent({
           type="checkbox"
         />
         <span>
-          I agree that Techyfern Digital may use the information I provide to
+          I agree that TechyPraxis Digital may use the information I provide to
           review and respond to this request. Read the{" "}
           <Link to="/privacy/">privacy notice</Link>.
         </span>

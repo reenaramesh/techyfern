@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { BrandLogo } from "./BrandLogo";
 import { PrimaryButton } from "./Buttons";
 import { MobileNavigation } from "./MobileNavigation";
 
@@ -65,29 +66,10 @@ export function Header() {
         <Link
           className="brand"
           to="/"
-          aria-label="Techyfern Digital home"
+          aria-label="TechyPraxis Digital home"
           onClick={closeMobileNavigation}
         >
-          <span className="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <path
-                d="M8 24c0-7.2 4.5-12 12-12s12 4.8 12 12"
-                stroke="currentColor"
-                strokeWidth="3.4"
-                strokeLinecap="round"
-              />
-              <path
-                d="M20 13v16M13 21h14"
-                stroke="#38c7a5"
-                strokeWidth="3.4"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span className="brand-copy">
-            <span className="brand-name">techyfern</span>
-            <span className="brand-descriptor">DIGITAL</span>
-          </span>
+          <BrandLogo />
         </Link>
 
         <nav aria-label="Main navigation" className="desktop-nav">

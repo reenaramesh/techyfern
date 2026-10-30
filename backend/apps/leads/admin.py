@@ -114,7 +114,7 @@ class LeadAdmin(admin.ModelAdmin):
             raise PermissionDenied
         response = HttpResponse(content_type="text/csv; charset=utf-8")
         response["Content-Disposition"] = (
-            f'attachment; filename="techyfern-leads-{timezone.localdate().isoformat()}.csv"'
+            f'attachment; filename="techypraxis-leads-{timezone.localdate().isoformat()}.csv"'
         )
         writer = csv.writer(response)
         writer.writerow(

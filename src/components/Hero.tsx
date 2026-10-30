@@ -1,11 +1,14 @@
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { Link } from "react-router-dom";
+import { fadeUpVariants, staggerChildrenVariants } from "../lib/motionVariants";
+import { useIsHydrated } from "../lib/useIsHydrated";
 import { PrimaryButton, SecondaryButton } from "./Buttons";
 import { PageContainer } from "./PageContainer";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const motionReady = useIsHydrated();
 
   return (
     <section className="hero-section">
@@ -14,44 +17,51 @@ export function Hero() {
       <PageContainer className="hero-grid">
         <div className="hero-copy">
           <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
+            animate="visible"
+            initial={motionReady && reduceMotion === false ? "hidden" : false}
+            key={motionReady ? "animated" : "static"}
+            variants={staggerChildrenVariants}
           >
-            <p className="hero-kicker">
+            <motion.p className="hero-kicker" variants={fadeUpVariants}>
               <span className="status-dot" /> DIGITAL MADE PURPOSEFUL
-            </p>
-            <h1>Smart Digital Solutions for Growing Businesses.</h1>
-            <p className="hero-description">
+            </motion.p>
+            <motion.h1 variants={fadeUpVariants}>
+              Smart Digital Solutions for Growing Businesses.
+            </motion.h1>
+            <motion.p
+              className="hero-description"
+              variants={fadeUpVariants}
+            >
               From professional websites and custom business applications to
-              digital marketing and intelligent automation, Techyfern Digital
+              digital marketing and intelligent automation, TechyPraxis Digital
               helps businesses build, connect and grow.
-            </p>
-            <div className="hero-actions">
+            </motion.p>
+            <motion.div className="hero-actions" variants={fadeUpVariants}>
               <PrimaryButton to="/contact">Discuss Your Project</PrimaryButton>
               <SecondaryButton to="/#services" icon>
                 Explore Our Services
               </SecondaryButton>
-            </div>
-            <div className="hero-trust-line">
+            </motion.div>
+            <motion.div className="hero-trust-line" variants={fadeUpVariants}>
               <span>
                 <Check aria-hidden="true" size={15} /> Built around your goals
               </span>
               <span>
                 <Check aria-hidden="true" size={15} /> Designed to grow with you
               </span>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
         <motion.div
-          animate={{ opacity: 1, y: 0 }}
+          animate="visible"
           className="hero-art-wrap"
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+          initial={motionReady && reduceMotion === false ? "hidden" : false}
+          key={motionReady ? "animated" : "static"}
+          variants={fadeUpVariants}
         >
           <div className="hero-art-glow" />
-          <svg
+          <motion.svg
             aria-labelledby="hero-visual-title"
             className="hero-illustration"
             role="img"
@@ -64,11 +74,11 @@ export function Hero() {
             <defs>
               <linearGradient id="panel" x1="95" x2="506" y1="73" y2="438">
                 <stop stopColor="#fff" />
-                <stop offset="1" stopColor="#f2f8f5" />
+                <stop offset="1" stopColor="#f1f8fa" />
               </linearGradient>
               <linearGradient id="growth" x1="164" x2="438" y1="287" y2="192">
-                <stop stopColor="#145a46" />
-                <stop offset="1" stopColor="#18b79e" />
+                <stop stopColor="#3730a3" />
+                <stop offset="1" stopColor="#f59e0b" />
               </linearGradient>
               <filter
                 id="shadow"
@@ -80,19 +90,19 @@ export function Hero() {
                 <feDropShadow
                   dx="0"
                   dy="19"
-                  floodColor="#0d352c"
+                  floodColor="#3730a3"
                   floodOpacity=".12"
                   stdDeviation="22"
                 />
               </filter>
             </defs>
-            <circle cx="302" cy="247" fill="#dff3eb" r="200" />
+            <circle cx="302" cy="247" fill="#eef2ff" r="200" />
             <circle
               cx="300"
               cy="250"
               r="180"
               fill="none"
-              stroke="#bddfd1"
+              stroke="#fcd34d"
               strokeDasharray="3 10"
             />
             <g filter="url(#shadow)">
@@ -100,20 +110,20 @@ export function Hero() {
                 fill="url(#panel)"
                 height="335"
                 rx="24"
-                stroke="#dcebe4"
+                stroke="#e2e8f0"
                 width="420"
                 x="91"
                 y="80"
               />
-              <path d="M91 131h420" stroke="#dcebe4" />
+              <path d="M91 131h420" stroke="#e2e8f0" />
               <circle cx="117" cy="106" fill="#ef9b87" r="4" />
               <circle cx="132" cy="106" fill="#e8c76b" r="4" />
-              <circle cx="147" cy="106" fill="#7ac6a4" r="4" />
+              <circle cx="147" cy="106" fill="#f59e0b" r="4" />
               <rect
                 fill="#fff"
                 height="29"
                 rx="8"
-                stroke="#e7eee9"
+                stroke="#e7eef0"
                 width="146"
                 x="177"
                 y="92"
@@ -125,7 +135,7 @@ export function Hero() {
                 strokeWidth="3"
               />
               <rect
-                fill="#e6f3ec"
+                fill="#fffbeb"
                 height="40"
                 rx="12"
                 width="40"
@@ -134,19 +144,19 @@ export function Hero() {
               />
               <path
                 d="M131 180c0-7 4-12 10-12s10 5 10 12"
-                stroke="#145a46"
+                stroke="#3730a3"
                 strokeLinecap="round"
                 strokeWidth="2.4"
               />
               <path
                 d="M141 169v15m-6-8h12"
-                stroke="#16a98f"
+                stroke="#f59e0b"
                 strokeLinecap="round"
                 strokeWidth="2.4"
               />
               <path
                 d="M173 165h103m-103 13h68"
-                stroke="#c6d6ce"
+                stroke="#cbd5e1"
                 strokeLinecap="round"
                 strokeWidth="4"
               />
@@ -182,7 +192,7 @@ export function Hero() {
                 stroke="#eef3f0"
                 strokeWidth="1.4"
               />
-              <circle cx="276" cy="236" fill="#18b79e" r="5" />
+              <circle cx="276" cy="236" fill="#f59e0b" r="5" />
               <rect
                 fill="#fff"
                 height="117"
@@ -203,44 +213,44 @@ export function Hero() {
                 CONNECTED TOOLS
               </text>
               <rect
-                fill="#eef6f1"
+                fill="#eef2ff"
                 height="27"
                 rx="8"
                 width="116"
                 x="333"
                 y="255"
               />
-              <circle cx="347" cy="268" fill="#145a46" r="5" />
-              <path d="M359 268h74" stroke="#c0d2c8" strokeWidth="3" />
+              <circle cx="347" cy="268" fill="#3730a3" r="5" />
+              <path d="M359 268h74" stroke="#cbd5e1" strokeWidth="3" />
               <rect
-                fill="#eef6f1"
+                fill="#fffbeb"
                 height="27"
                 rx="8"
                 width="116"
                 x="333"
                 y="296"
               />
-              <circle cx="347" cy="309" fill="#18b79e" r="5" />
-              <path d="M359 309h58" stroke="#c0d2c8" strokeWidth="3" />
+              <circle cx="347" cy="309" fill="#f59e0b" r="5" />
+              <path d="M359 309h58" stroke="#cbd5e1" strokeWidth="3" />
             </g>
             <g filter="url(#shadow)">
               <rect
-                fill="#145a46"
+                fill="#3730a3"
                 height="78"
                 rx="17"
                 width="176"
                 x="47"
                 y="344"
               />
-              <circle cx="78" cy="382" fill="#246d58" r="19" />
+              <circle cx="78" cy="382" fill="#3730a3" r="19" />
               <path
                 d="M70 382h16m-8-8v16"
-                stroke="#a2e4d0"
+                stroke="#fbbf24"
                 strokeLinecap="round"
                 strokeWidth="2"
               />
               <text
-                fill="#bce2d5"
+                fill="#fffbeb"
                 fontFamily="Manrope, sans-serif"
                 fontSize="9"
                 fontWeight="700"
@@ -270,27 +280,27 @@ export function Hero() {
                 x="404"
                 y="148"
               />
-              <circle cx="430" cy="182" fill="#e5f3eb" r="15" />
+              <circle cx="430" cy="182" fill="#fffbeb" r="15" />
               <path
                 d="M423 182l5 5 9-11"
                 fill="none"
-                stroke="#145a46"
+                stroke="#3730a3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2.4"
               />
               <path
                 d="M455 177h82m-82 11h55"
-                stroke="#cbd9d1"
+                stroke="#cbd5e1"
                 strokeLinecap="round"
                 strokeWidth="3"
               />
             </g>
-            <circle cx="486" cy="405" fill="#15b49b" r="7" />
+            <circle cx="486" cy="405" fill="#f59e0b" r="7" />
             <circle cx="101" cy="185" fill="#f1c96b" r="5" />
-          </svg>
+          </motion.svg>
           <div className="hero-caption">
-            <span className="caption-mark">TF</span>
+            <span className="caption-mark">TP</span>
             <span>
               <strong>One connected digital presence</strong>
               <small>Thoughtful tools. Clear next steps.</small>

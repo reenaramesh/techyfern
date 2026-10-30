@@ -1,14 +1,11 @@
 import {
   Accessibility,
   ArrowRight,
-  Bot,
-  Braces,
   Check,
   CircleHelp,
   Code2,
   Compass,
   Layers3,
-  Megaphone,
   Network,
   Search,
   ShieldCheck,
@@ -17,6 +14,7 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { CTASection } from "../components/CTASection";
 import { FAQAccordion } from "../components/FAQAccordion";
@@ -26,50 +24,10 @@ import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton, SecondaryButton } from "../components/Buttons";
 import { SectionHeading } from "../components/SectionHeading";
 import { PortfolioProjectCard } from "../components/PortfolioProjectCard";
+import { ScrollRevealSection } from "../components/ScrollRevealSection";
 import { conceptProjects } from "../lib/portfolioProjects";
-
-const services = [
-  {
-    icon: Code2,
-    number: "01",
-    title: "Website Design & Development",
-    description:
-      "Responsive, considered websites that communicate what you do and make the next step clear.",
-    to: "/website-design/",
-  },
-  {
-    icon: Megaphone,
-    number: "02",
-    title: "Digital Marketing & SEO",
-    description:
-      "Thoughtful digital foundations that help the right people discover and understand your business.",
-    to: "/digital-marketing/",
-  },
-  {
-    icon: Network,
-    number: "03",
-    title: "Business Technology Solutions",
-    description:
-      "Connected tools and practical technology that support the way your business works.",
-    to: "/business-tech-solutions/",
-  },
-  {
-    icon: Braces,
-    number: "04",
-    title: "Custom Web Applications",
-    description:
-      "Purpose-built web applications shaped around your product, people and processes.",
-    to: "/web-app-development/",
-  },
-  {
-    icon: Bot,
-    number: "05",
-    title: "AI & Business Automation",
-    description:
-      "Practical automation ideas that make repeatable work simpler and create more room to focus.",
-    to: "/ai-automation/",
-  },
-];
+import { fadeUpVariants, staggerChildrenVariants } from "../lib/motionVariants";
+import { serviceGroups, specialistServices } from "../lib/serviceContent";
 
 const challenges = [
   {
@@ -147,81 +105,51 @@ const processSteps = [
 ];
 
 const capabilities = [
-  "Responsive websites",
-  "Search foundations",
-  "Custom web apps",
-  "Digital campaigns",
-  "Workflow automation",
-  "AI integrations",
-  "Business software",
-  "Experience design",
+  "React & TypeScript",
+  "Vite & Tailwind CSS",
+  "WordPress",
+  "Python & Django",
+  "PostgreSQL",
+  "Analytics & search tools",
+  "E-commerce platforms",
+  "APIs & workflow automation",
 ];
-
-function ServiceIntroduction({
-  label,
-  title,
-  description,
-  to,
-  icon: Icon,
-  className,
-}: {
-  label: string;
-  title: string;
-  description: string;
-  to: string;
-  icon: typeof Code2;
-  className: string;
-}) {
-  return (
-    <article className={`intro-card ${className}`}>
-      <div className="intro-card-visual" aria-hidden="true">
-        <div className="intro-visual-frame">
-          <Icon size={30} strokeWidth={1.6} />
-          <span className="intro-visual-line intro-visual-line-wide" />
-          <span className="intro-visual-line" />
-          <span className="intro-visual-chip">
-            <Check size={13} /> Thoughtfully connected
-          </span>
-        </div>
-      </div>
-      <div className="intro-card-copy">
-        <p className="eyebrow">{label}</p>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <Link className="text-link" to={to}>
-          Explore this service <ArrowRight size={16} aria-hidden="true" />
-        </Link>
-      </div>
-    </article>
-  );
-}
 
 export function HomePage() {
   return (
     <>
       <Hero />
 
-      <section className="services-section section-space" id="services">
+      <ScrollRevealSection className="services-section section-space" id="services">
         <PageContainer>
           <div className="section-topline">
             <SectionHeading
               eyebrow="What we do"
-              title="Digital support, built around your business."
-              description="The right mix of digital thinking and technology to help your business take its next step."
+              title="Three connected foundations for your business."
+              description="Start with the area that matters most: a clear digital presence, more informed marketing or technology that supports everyday work."
             />
             <Link className="text-link section-toplink" to="/services/">
               View all services <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <div className="services-grid">
-            {services.map((service) => (
-              <ServiceCard key={service.number} {...service} />
+          <motion.div
+            className="services-grid"
+            variants={staggerChildrenVariants}
+          >
+            {serviceGroups.map((service) => (
+              <motion.div
+                className="service-card-reveal"
+                key={service.number}
+                variants={fadeUpVariants}
+              >
+                <ServiceCard {...service} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="problems-section section-space">
+      <ScrollRevealSection className="problems-section section-space">
         <PageContainer className="problems-layout">
           <div className="problems-intro">
             <SectionHeading
@@ -247,58 +175,52 @@ export function HomePage() {
             ))}
           </div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="service-intros-section section-space">
+      <ScrollRevealSection className="specialist-section section-space">
         <PageContainer>
           <div className="section-topline">
             <SectionHeading
-              eyebrow="Built with intention"
-              title="A stronger digital foundation, one step at a time."
-              description="Whether you are creating something new or improving what is already there, the work should connect back to what your business needs."
+              eyebrow="Specialist capabilities"
+              title="Purpose-built solutions for specific workflows."
+              description="When your needs go beyond a standard website or campaign, explore custom applications and practical automation."
             />
             <Link className="text-link section-toplink" to="/contact">
-              Find the right fit <ArrowRight size={16} aria-hidden="true" />
+              Talk through a workflow <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <div className="intro-card-grid">
-            <ServiceIntroduction
-              className="intro-card-website"
-              description="Make a thoughtful first impression with a fast, responsive website that clearly communicates your value and guides visitors to take action."
-              icon={Code2}
-              label="01 / DIGITAL PRESENCE"
-              title="Website Design & Development"
-              to="/website-design/"
-            />
-            <ServiceIntroduction
-              className="intro-card-marketing"
-              description="Build solid search foundations and useful digital marketing experiences that help people find your business and understand what sets it apart."
-              icon={Megaphone}
-              label="02 / DISCOVERABILITY"
-              title="Digital Marketing & SEO"
-              to="/digital-marketing/"
-            />
-            <ServiceIntroduction
-              className="intro-card-automation"
-              description="Connect everyday tools, shape custom applications and explore practical automation to make important work easier to manage."
-              icon={Workflow}
-              label="03 / BUSINESS SYSTEMS"
-              title="Business Software & Automation"
-              to="/business-tech-solutions/"
-            />
-          </div>
+          <motion.div
+            className="specialist-grid"
+            variants={staggerChildrenVariants}
+          >
+            {specialistServices.map((service, index) => (
+              <motion.div
+                className="service-card-reveal"
+                key={service.to}
+                variants={fadeUpVariants}
+              >
+                <ServiceCard
+                  description={service.description}
+                  icon={service.icon}
+                  number={`0${index + 4}`}
+                  title={service.title}
+                  to={service.to}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="why-section section-space">
+      <ScrollRevealSection className="why-section section-space">
         <PageContainer className="why-layout">
           <div className="why-copy">
             <SectionHeading
-              eyebrow="Why Techyfern Digital"
+              eyebrow="Why TechyPraxis Digital"
               title="Technology is better when it starts with people."
               description="A website, campaign or application is only useful when it helps someone do something better. We bring creative website design, software engineering and digital marketing together around practical business goals."
             />
-            <PrimaryButton to="/about">More about Techyfern</PrimaryButton>
+            <PrimaryButton to="/about">More about TechyPraxis</PrimaryButton>
             <div aria-hidden="true" className="why-graphic">
               <span className="why-graphic-orbit" />
               <span className="why-graphic-core">T</span>
@@ -318,9 +240,9 @@ export function HomePage() {
             ))}
           </div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="process-section section-space">
+      <ScrollRevealSection className="process-section section-space">
         <PageContainer>
           <SectionHeading
             align="center"
@@ -344,9 +266,9 @@ export function HomePage() {
             </Link>
           </div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="home-portfolio-section section-space">
+      <ScrollRevealSection className="home-portfolio-section section-space">
         <PageContainer>
           <div className="section-topline">
             <SectionHeading
@@ -364,15 +286,15 @@ export function HomePage() {
             ))}
           </div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="capabilities-section">
+      <ScrollRevealSection className="capabilities-section">
         <PageContainer className="capabilities-layout">
           <div className="capabilities-intro">
             <SectionHeading
               eyebrow="Technology capabilities"
-              title="The right tools for the right job."
-              description="Technology is a means to a better outcome, not the outcome itself. We choose an approach to suit your goals, your audience and your team."
+              title="Choose technology to fit the work."
+              description="The examples shown reflect tools used in this website and the services described here. The right approach depends on your goals, existing systems and ongoing needs."
               light
             />
           </div>
@@ -382,11 +304,11 @@ export function HomePage() {
                 <Code2 size={20} aria-hidden="true" />
               </span>
               <span>
-                <strong>Digital toolkit</strong>
-                <small>Flexible by design</small>
+                <strong>Technology toolkit</strong>
+                <small>Selected for the project</small>
               </span>
-              <span className="capabilities-live">
-                <span /> CONNECTED
+              <span className="capabilities-scope">
+                <span /> SCOPE-LED
               </span>
             </div>
             <div className="capabilities-list">
@@ -400,11 +322,16 @@ export function HomePage() {
                 </div>
               ))}
             </div>
+            <p className="capabilities-note">
+              This list is illustrative, not a fixed stack or promise of
+              prebuilt integrations. The Python backend is separate from this
+              static website preview.
+            </p>
           </div>
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="faq-section section-space">
+      <ScrollRevealSection className="faq-section section-space">
         <PageContainer className="faq-layout">
           <div className="faq-intro">
             <span className="faq-icon">
@@ -421,9 +348,9 @@ export function HomePage() {
           </div>
           <FAQAccordion />
         </PageContainer>
-      </section>
+      </ScrollRevealSection>
 
-      <CTASection />
+      <CTASection reveal />
     </>
   );
 }

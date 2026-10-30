@@ -57,10 +57,10 @@ export function AboutPage() {
           <Breadcrumbs current="About" items={[]} />
           <div className="company-hero-layout">
             <div className="company-hero-copy">
-              <p className="eyebrow">ABOUT TECHYFERN DIGITAL</p>
+              <p className="eyebrow">ABOUT TECHYPRAXIS DIGITAL</p>
               <h1>Technology and creativity, working toward the same goal.</h1>
               <p>
-                Techyfern Digital brings together creative website design,
+                TechyPraxis Digital brings together creative website design,
                 software engineering and digital marketing to help businesses
                 build stronger digital foundations and grow.
               </p>

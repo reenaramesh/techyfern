@@ -14,7 +14,7 @@ export function ContactPage() {
           <Breadcrumbs current="Contact" items={[]} />
           <SectionHeading
             as="h1"
-            eyebrow="CONTACT TECHYFERN DIGITAL"
+            eyebrow="CONTACT TECHYPRAXIS DIGITAL"
             title="Tell us what you would like to make easier."
             description="Share a little about your business and the digital challenge you are working through. We’ll use the details to review and respond to your enquiry."
           />

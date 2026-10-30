@@ -1,4 +1,4 @@
-name: Deploy Techyfern Digital to GitHub Pages
+name: Deploy TechyPraxis Digital to GitHub Pages
 
 on:
   push:

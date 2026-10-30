@@ -15,9 +15,9 @@ export const futurePages: PageDefinition[] = [];
 
 export const contactPage: PageDefinition = {
   path: "/contact/",
-  title: "Contact Techyfern Digital | Discuss Your Project",
+  title: "Contact TechyPraxis Digital | Discuss Your Project",
   description:
-    "Contact Techyfern Digital in Bengaluru to discuss website, marketing, software or automation requirements.",
+    "Contact TechyPraxis Digital in Bengaluru to discuss website, marketing, software or automation requirements.",
   eyebrow: "Contact",
   heading: "Tell us what you would like to make easier.",
   introduction:
@@ -26,9 +26,9 @@ export const contactPage: PageDefinition = {
 
 export const quotationPage: PageDefinition = {
   path: "/request-quote/",
-  title: "Request a Project Consultation | Techyfern Digital",
+  title: "Request a Project Consultation | TechyPraxis Digital",
   description:
-    "Share your project requirements, service category, budget range and expected timeline with Techyfern Digital.",
+    "Share your project requirements, service category, budget range and expected timeline with TechyPraxis Digital.",
   eyebrow: "Project consultation",
   heading: "Help us understand the shape of your project.",
   introduction:
@@ -38,32 +38,32 @@ export const quotationPage: PageDefinition = {
 
 export const privacyPage: PageDefinition = {
   path: "/privacy/",
-  title: "Privacy Notice | Techyfern Digital",
+  title: "Privacy Notice | TechyPraxis Digital",
   description:
-    "Learn what information Techyfern Digital collects through project enquiry forms and how it is used and protected.",
+    "Learn what information TechyPraxis Digital collects through project enquiry forms and how it is used and protected.",
   eyebrow: "Privacy notice",
   heading: "Clear information about enquiry data.",
   introduction:
-    "This notice describes information collected through the Techyfern Digital contact and consultation forms. It is operational information and must be reviewed before production launch.",
+    "This notice describes information collected through the TechyPraxis Digital contact and consultation forms. It is operational information and must be reviewed before production launch.",
   noIndex: true,
 };
 
 export const aboutPage: PageDefinition = {
   path: "/about/",
-  title: "About Techyfern Digital | Practical Digital Solutions",
+  title: "About TechyPraxis Digital | Practical Digital Solutions",
   description:
-    "Learn how Techyfern Digital brings website design, software engineering and digital marketing together to solve practical business challenges.",
-  eyebrow: "About Techyfern",
+    "Learn how TechyPraxis Digital brings website design, software engineering and digital marketing together to solve practical business challenges.",
+  eyebrow: "About TechyPraxis",
   heading: "Build a stronger digital foundation, with purpose.",
   introduction:
-    "Techyfern Digital brings together creative website design, software engineering and digital marketing to help businesses build stronger digital foundations and grow.",
+    "TechyPraxis Digital brings together creative website design, software engineering and digital marketing to help businesses build stronger digital foundations and grow.",
 };
 
 export const portfolioPage: PageDefinition = {
   path: "/portfolio/",
-  title: "Portfolio & Concept Projects | Techyfern Digital",
+  title: "Portfolio & Concept Projects | TechyPraxis Digital",
   description:
-    "Explore approved Techyfern Digital case studies when available and clearly labelled concept demonstrations across web design, software, marketing and automation.",
+    "Explore approved TechyPraxis Digital case studies when available and clearly labelled concept demonstrations across web design, software, marketing and automation.",
   eyebrow: "Portfolio",
   heading: "Selected work, with every project clearly represented.",
   introduction:
@@ -72,9 +72,9 @@ export const portfolioPage: PageDefinition = {
 
 export const processPage: PageDefinition = {
   path: "/our-process/",
-  title: "Our Project Process | Techyfern Digital",
+  title: "Our Project Process | TechyPraxis Digital",
   description:
-    "Understand how Techyfern Digital approaches discovery, planning, design, development, testing, launch and ongoing improvement.",
+    "Understand how TechyPraxis Digital approaches discovery, planning, design, development, testing, launch and ongoing improvement.",
   eyebrow: "Our process",
   heading: "A clear process, shaped around your project.",
   introduction:
@@ -83,8 +83,8 @@ export const processPage: PageDefinition = {
 
 export const notFoundPage: PageDefinition = {
   path: "/404/",
-  title: "Page Not Found | Techyfern Digital",
-  description: "The requested Techyfern Digital page could not be found.",
+  title: "Page Not Found | TechyPraxis Digital",
+  description: "The requested TechyPraxis Digital page could not be found.",
   eyebrow: "404 / PAGE NOT FOUND",
   heading: "This page isn’t here.",
   introduction: "The link may be out of date, or the page may have moved.",
@@ -93,20 +93,20 @@ export const notFoundPage: PageDefinition = {
 
 export const homePage: PageDefinition = {
   path: "/",
-  title: "Techyfern Digital | Growing Ideas Through Technology",
+  title: "TechyPraxis Digital | Growing Ideas Through Technology",
   description:
-    "Techyfern Digital helps businesses build, connect and grow through websites, digital marketing, business software and automation.",
+    "TechyPraxis Digital helps businesses build, connect and grow through websites, digital marketing, business software and automation.",
   eyebrow: "Digital made purposeful",
   heading: "Smart Digital Solutions for Growing Businesses.",
   introduction:
-    "From professional websites and custom business applications to digital marketing and intelligent automation, Techyfern Digital helps businesses build, connect and grow.",
+    "From professional websites and custom business applications to digital marketing and intelligent automation, TechyPraxis Digital helps businesses build, connect and grow.",
 };
 
 export const servicesOverviewPage: PageDefinition = {
   path: "/services/",
-  title: "Digital Services for Growing Businesses | Techyfern Digital",
+  title: "Digital Services for Growing Businesses | TechyPraxis Digital",
   description:
-    "Explore website development, digital marketing, business software, web applications and AI automation services from Techyfern Digital.",
+    "Explore website development, digital marketing, business software, web applications and AI automation services from TechyPraxis Digital.",
   eyebrow: "Our services",
   heading: "The right digital support for your next step.",
   introduction:
@@ -130,7 +130,7 @@ export function getPageDefinition(pathname: string): PageDefinition {
     if (project) {
       return {
         path: `/portfolio/${project.slug}/`,
-        title: `${project.title} ${project.kind === "concept" ? "Concept Project" : "Case Study"} | Techyfern Digital`,
+        title: `${project.title} ${project.kind === "concept" ? "Concept Project" : "Case Study"} | TechyPraxis Digital`,
         description: project.summary,
         eyebrow: project.kind === "concept" ? "Concept project" : "Case study",
         heading: project.title,

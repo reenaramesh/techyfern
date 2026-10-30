@@ -117,9 +117,9 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/website-design/",
     shortName: "Website design",
-    title: "Website Design & Development | Techyfern Digital",
+    title: "Website Design & Development | TechyPraxis Digital",
     description:
-      "Plan and build responsive business websites, corporate sites, WordPress and React websites, e-commerce stores and landing pages with Techyfern Digital.",
+      "Plan and build responsive business websites, corporate sites, WordPress and React websites, e-commerce stores and landing pages with TechyPraxis Digital.",
     eyebrow: "Website design & development",
     heading: "A website that makes your business easier to choose.",
     introduction:
@@ -207,7 +207,7 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/digital-marketing/",
     shortName: "Digital marketing",
-    title: "Digital Marketing & SEO Services | Techyfern Digital",
+    title: "Digital Marketing & SEO Services | TechyPraxis Digital",
     description:
       "Explore SEO, local SEO, Google Ads, social media campaigns, conversion improvement, analytics and reporting for growing businesses.",
     eyebrow: "Digital marketing & business growth",
@@ -297,9 +297,9 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/web-app-development/",
     shortName: "Web applications",
-    title: "Web Application Development | Techyfern Digital",
+    title: "Web Application Development | TechyPraxis Digital",
     description:
-      "Plan custom web applications, SaaS platforms, portals, booking systems, dashboards, API integrations and business applications with Techyfern Digital.",
+      "Plan custom web applications, SaaS platforms, portals, booking systems, dashboards, API integrations and business applications with TechyPraxis Digital.",
     eyebrow: "Web application development",
     heading: "Software shaped around the way people need to work.",
     introduction:
@@ -374,7 +374,7 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/business-tech-solutions/",
     shortName: "Business technology",
-    title: "Business Technology & Software Solutions | Techyfern Digital",
+    title: "Business Technology & Software Solutions | TechyPraxis Digital",
     description:
       "Explore practical CRM, business management, billing, attendance, inventory, vendor, task and reporting software solutions for growing businesses.",
     eyebrow: "Business technology & software",
@@ -455,9 +455,9 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/ai-automation/",
     shortName: "AI & automation",
-    title: "AI & Business Automation | Techyfern Digital",
+    title: "AI & Business Automation | TechyPraxis Digital",
     description:
-      "Explore practical AI-assisted workflows, customer support, lead management, document processing and business automation with Techyfern Digital.",
+      "Explore practical AI-assisted workflows, customer support, lead management, document processing and business automation with TechyPraxis Digital.",
     eyebrow: "AI & business automation",
     heading: "Use automation thoughtfully, where it helps.",
     introduction:

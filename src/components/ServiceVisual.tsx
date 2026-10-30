@@ -29,7 +29,7 @@ export function ServiceVisual({
             <i />
             <i />
           </span>
-          <span className="service-window-label">TECHYFERN / {variant}</span>
+          <span className="service-window-label">TECHYPRAXIS / {variant}</span>
           <CircleDot size={15} aria-hidden="true" />
         </div>
         <div className="service-visual-window-content">

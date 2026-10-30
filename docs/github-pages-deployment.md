@@ -8,42 +8,36 @@ configure a custom domain or deploy the Django backend.
 - Repository name: `techyfern`
 - GitHub repository URL: <https://github.com/reenaramesh/techyfern>
 - Deployment branch: `main`
+- Latest verified remote commit: `89383e94c0a0cf17cecffb911fc838058c4fe24a`
 - Expected Pages URL:
   <https://reenaramesh.github.io/techyfern/>
-- Actual deployed URL: not verified; the remote repository and Pages settings
-  have not been configured.
+- Actual deployed URL, verified 2026-10-26:
+  <https://reenaramesh.github.io/techyfern/>
+- Current public brand: TechyPraxis Digital. The repository and `/techyfern/`
+  base path remain unchanged.
 
-The GitHub repository exists and was empty when checked (no branches or
-commits). The workspace is now initialized locally on `main`, with the
-repository configured as `origin`. Its initial website commit has not yet
-been pushed because GitHub credentials are not available to this session.
-Environment files, local databases, Python environments, build output, caches,
-and common private credential files are excluded by `.gitignore`. Do not
-commit secrets or customer records.
+The repository's `main` branch is present on `origin`, and its GitHub Pages
+workflow has completed successfully. The homepage is reachable at the expected
+URL. Environment files, local databases, Python environments, build output,
+caches, and common private credential files are excluded by `.gitignore`. Do
+not commit secrets or customer records.
+
+The verified deployment used the
+[successful GitHub Actions run](https://github.com/reenaramesh/techyfern/actions/runs/40266188083)
+for commit `89383e94c0a0cf17cecffb911fc838058c4fe24a`. Phase 7 changes in this
+workspace are local and will not appear on the live preview until you commit
+and push them.
 
 ## One-time GitHub setup
 
-1. The repository already exists at
-   <https://github.com/reenaramesh/techyfern> and its default branch is `main`.
-   It is public; review the source for material that should remain private.
-2. The local workspace has an initial commit. Review its staged/pushed state
-   with `git status --short --branch` and `git log -1 --oneline`. Once GitHub
-   authentication is available in the local credential manager, publish the
-   `main` branch:
-
-   ```powershell
-   git push -u origin main
-   ```
-
-   No remote commits or branches existed when checked. If the remote
-   repository has since changed, fetch and integrate any new history before
-   pushing; never force-push or replace existing history.
-3. In the GitHub repository, open **Settings → Pages** and select **GitHub
-   Actions** as the build and deployment source. No custom domain is needed.
-4. Push to `main`, then open **Actions → Deploy Techyfern Digital to GitHub
-   Pages** and wait for both `build` and `deploy` jobs to succeed.
-5. GitHub displays the published URL in the Pages settings and deployment
-   workflow. Confirm it matches the expected URL above before sharing it.
+1. The repository is public. Review its source for material that should remain
+   private.
+2. The Pages source is configured as **GitHub Actions**. No custom domain is
+   needed.
+3. Push reviewed changes to `main` to trigger the workflow, or start it from
+   **Actions → Deploy TechyPraxis Digital to GitHub Pages**.
+4. Confirm both `build` and `deploy` jobs succeed, then verify the deployed
+   URL shown in the workflow matches the expected URL above.
 
 The workflow deploys only the root Vite `dist/` artifact. Django code, local
 databases, environment files, and Python dependencies are not uploaded as
@@ -76,17 +70,15 @@ manual builds, with deployment restricted to `main`.
 - The current Pages build uses the existing externally hosted Google Fonts
   stylesheet. The preview needs an internet connection to retrieve those
   fonts.
-- No custom domain is configured. GitHub account ownership, repository
-  visibility, Pages settings, workflow execution and a live URL remain
-  unverified until the one-time setup is completed.
+- No custom domain is configured. Repository, `main` branch, successful
+  workflow run and the live preview URL were verified on 2026-10-26.
 
 ## Updating the preview
 
-After the repository is connected, commit and push reviewed changes to `main`.
-The Actions workflow runs checks and publishes the new static artifact when
-they pass. Check the workflow run and open its Pages URL to verify the update.
-Do not include `.env` files, API credentials, customer data, or local database
-files.
+Commit and push reviewed changes to `main`. The Actions workflow runs checks
+and publishes the new static artifact when they pass. Check the workflow run
+and open its Pages URL to verify the update. Do not include `.env` files, API
+credentials, customer data, or local database files.
 
 ## Later migration to Hostinger
 

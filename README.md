@@ -1,6 +1,6 @@
-# Techyfern Digital
+# TechyPraxis Digital
 
-Website for Techyfern Digital, built with React, TypeScript,
+Website for TechyPraxis Digital, built with React, TypeScript,
 Vite, Tailwind CSS, React Router, Lucide React and Motion.
 
 ## Local development
@@ -76,11 +76,15 @@ frontend environment file. Detailed readiness and release steps are in
 
 The repository includes a GitHub Actions workflow for a temporary Pages
 preview. It builds with the repository subpath, keeps every page noindex,
-blocks crawling, and disables contact/consultation form submissions. The
-workflow publishes only the static `dist/` output; Django remains separate.
-See [docs/github-pages-deployment.md](./docs/github-pages-deployment.md) for
-the required repository and Pages setup. No GitHub remote or deployment is
-currently configured.
+allows crawlers to read the noindex directives, and disables
+contact/consultation form submissions. The workflow publishes only the static
+`dist/` output; Django remains separate. The preview is live at
+<https://reenaramesh.github.io/techyfern/>. See
+[docs/github-pages-deployment.md](./docs/github-pages-deployment.md) for the
+repository and deployment details.
+
+The approved public brand is TechyPraxis Digital. The existing repository
+name, Pages URL and `/techyfern/` base path are intentionally unchanged.
 
 Keep Django hosted separately on a Python-compatible environment such as a VPS;
 do not try to run it on Hostinger Business static/shared hosting. See
@@ -92,14 +96,16 @@ The domain is not yet confirmed. Copy `.env.example` to `.env.production` and
 set `VITE_SITE_URL` to the approved canonical origin before the production
 build. Canonical links are omitted while this value is empty.
 
-The included `robots.txt` intentionally blocks crawling and prerendered pages
-contain `noindex, nofollow` until launch readiness is approved. Concept
-demonstrations, the preliminary privacy notice, quotation form and 404 page
-remain noindex. When the domain and launch are approved, set
+The default production build uses a restrictive `robots.txt` and prerendered
+pages contain `noindex, nofollow` until launch readiness is approved. The
+GitHub Pages preview instead permits crawling so search engines can read the
+page-level noindex directives; these are crawler instructions, not access
+controls. Concept demonstrations, the preliminary privacy notice, quotation
+form and 404 page remain noindex. When the domain and launch are approved, set
 `VITE_ENABLE_INDEXING=true` together with an HTTPS `VITE_SITE_URL`; the
 prerender step then writes an accurate sitemap and open robots policy for
-indexable pages. Without both settings, the sitemap is omitted and crawling
-remains blocked.
+indexable pages. Without both settings, the sitemap is omitted and public
+production pages remain noindex.
 
 ## Portfolio content
 
@@ -110,7 +116,7 @@ outcomes only when they are verified.
 
 ## Replaceable brand assets
 
-The text-based Techyfern mark, favicon, palette and original inline SVG/CSS
-illustrations are provisional working assets. Replace them with approved final
-brand assets when available. Do not add unverified client claims, reviews,
-awards or project results.
+The approved TechyPraxis logo and navy/cyan palette are used in the site
+header and footer. The standalone TP favicon is still a follow-up because the
+supplied logo does not contain a clean, distinct TP symbol. Do not add
+unverified client claims, reviews, awards or project results.

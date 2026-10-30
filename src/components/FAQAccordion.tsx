@@ -5,10 +5,10 @@ const homepageFaqs: ServiceFaq[] = [
   {
     question: "What kinds of businesses do you work with?",
     answer:
-      "Techyfern Digital is focused on startups, SMEs, business owners and growing enterprises looking for digital and technology support.",
+      "TechyPraxis Digital is focused on startups, SMEs, business owners and growing enterprises looking for digital and technology support.",
   },
   {
-    question: "What services does Techyfern Digital offer?",
+    question: "What services does TechyPraxis Digital offer?",
     answer:
       "Our primary service areas are website design and development, digital marketing and SEO, business technology solutions, custom web applications, and AI and business automation.",
   },
@@ -18,8 +18,8 @@ const homepageFaqs: ServiceFaq[] = [
       "Yes. A project conversation is a useful way to explain your goals, current challenges and constraints before deciding on a suitable next step.",
   },
   {
-    question: "Where is Techyfern Digital based?",
-    answer: "Techyfern Digital is based in Bengaluru, India.",
+    question: "Where is TechyPraxis Digital based?",
+    answer: "TechyPraxis Digital is based in Bengaluru, India.",
   },
 ];
 

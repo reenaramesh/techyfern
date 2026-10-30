@@ -23,7 +23,7 @@ def send_lead_notifications(lead):
         )
         return False
 
-    subject = f"New Techyfern enquiry {lead.reference}"
+    subject = f"New TechyPraxis enquiry {lead.reference}"
     message = "\n".join(
         (
             f"Reference: {lead.reference}",
@@ -57,7 +57,7 @@ def send_lead_notifications(lead):
                 f"We received your enquiry {lead.reference}",
                 (
                     f"Hello {lead.name},\n\n"
-                    f"Thank you for contacting Techyfern Digital. We received "
+                    f"Thank you for contacting TechyPraxis Digital. We received "
                     f"your enquiry ({lead.reference}) and will review it.\n"
                 ),
                 settings.DEFAULT_FROM_EMAIL,

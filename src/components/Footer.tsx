@@ -1,5 +1,6 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { BrandLogo } from "./BrandLogo";
 import { PageContainer } from "./PageContainer";
 
 const services = [
@@ -17,27 +18,12 @@ export function Footer() {
       <PageContainer>
         <div className="footer-main">
           <div className="footer-brand-column">
-            <Link className="brand brand-footer" to="/">
-              <span className="brand-mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M8 24c0-7.2 4.5-12 12-12s12 4.8 12 12"
-                    stroke="currentColor"
-                    strokeWidth="3.4"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M20 13v16M13 21h14"
-                    stroke="#38c7a5"
-                    strokeWidth="3.4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <span className="brand-copy">
-                <span className="brand-name">techyfern</span>
-                <span className="brand-descriptor">DIGITAL</span>
-              </span>
+            <Link
+              aria-label="TechyPraxis Digital home"
+              className="brand brand-footer"
+              to="/"
+            >
+              <BrandLogo />
             </Link>
             <p className="footer-tagline">Growing Ideas Through Technology.</p>
             <p className="footer-description">
@@ -82,7 +68,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Techyfern Digital.</span>
+          <span>© {new Date().getFullYear()} TechyPraxis Digital.</span>
           <span>Growing Ideas Through Technology.</span>
         </div>
       </PageContainer>
