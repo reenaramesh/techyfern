@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getCanonicalPath, getPageDefinition } from "../lib/pages";
+import { getStructuredData } from "../lib/structuredData";
 
 const githubPagesPreview =
   import.meta.env.VITE_GITHUB_PAGES_PREVIEW === "true";
@@ -105,6 +106,29 @@ export function Seo() {
     } else {
       canonical?.remove();
       socialUrl?.remove();
+    }
+
+    const structuredData = getStructuredData(page, siteUrl ?? "");
+    let structuredDataScript = document.querySelector<HTMLScriptElement>(
+      "#techypraxis-structured-data",
+    );
+    if (structuredData) {
+      if (!structuredDataScript) {
+        structuredDataScript = document.createElement("script");
+        structuredDataScript.id = "techypraxis-structured-data";
+        structuredDataScript.type = "application/ld+json";
+        document.head.append(structuredDataScript);
+      }
+      structuredDataScript.textContent = JSON.stringify(structuredData).replace(
+        /[<>&]/g,
+        (character) => ({
+          "<": "\\u003c",
+          ">": "\\u003e",
+          "&": "\\u0026",
+        })[character]!,
+      );
+    } else {
+      structuredDataScript?.remove();
     }
   }, [page]);
 

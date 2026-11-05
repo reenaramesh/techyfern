@@ -16,6 +16,53 @@
   --brand-pale-indigo: #eef2ff;
   --brand-pale-amber: #fffbeb;
   --container: 1180px;
+  --illustration-radius: 18px;
+  --illustration-ai: image-set(
+    url("/illustrations/digital-ai-background-light-960.webp") 1x,
+    url("/illustrations/digital-ai-background-light-1920.webp") 2x
+  );
+  --illustration-web: image-set(
+    url("/illustrations/web-design-background-960.webp") 1x,
+    url("/illustrations/web-design-background-1920.webp") 2x
+  );
+  --illustration-marketing: image-set(
+    url("/illustrations/digital-marketing-background-960.webp") 1x,
+    url("/illustrations/digital-marketing-background-1920.webp") 2x
+  );
+  --illustration-workflow: image-set(
+    url("/illustrations/workflow-automation-background-960.webp") 1x,
+    url("/illustrations/workflow-automation-background-1920.webp") 2x
+  );
+  --illustration-collaboration: image-set(
+    url("/illustrations/collaboration-background-960.webp") 1x,
+    url("/illustrations/collaboration-background-1920.webp") 2x
+  );
+  --illustration-security: image-set(
+    url("/illustrations/privacy-security-background-960.webp") 1x,
+    url("/illustrations/privacy-security-background-1920.webp") 2x
+  );
+}
+
+.editorial-illustration {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  aspect-ratio: 1280 / 853;
+  justify-self: center;
+  border: 1px solid var(--line);
+  border-radius: var(--illustration-radius);
+  background: var(--brand-pale-indigo);
+}
+
+.hero-editorial-illustration {
+  margin-bottom: 32px;
+}
+
+.why-editorial-illustration {
+  max-width: 400px;
+  margin-top: 24px;
 }
 
 * {
@@ -568,7 +615,7 @@ button {
 }
 
 .section-heading-light .eyebrow {
-  color: #3730a3;
+  color: #fff;
 }
 
 .section-topline {
@@ -1315,11 +1362,27 @@ button {
 
 .footer-location {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 7px;
   margin: 17px 0 0;
   color: #e0e7ff;
   font-size: 10px;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.footer-location svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.footer-phone {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.footer-phone:hover {
+  color: var(--brand-amber);
 }
 
 .footer-location svg {
@@ -3940,7 +4003,7 @@ button {
 
 .company-industries-layout .eyebrow,
 .process-quality-layout .eyebrow {
-  color: #3730a3;
+  color: #fff;
 }
 
 .company-industry-list {
@@ -5133,6 +5196,45 @@ button {
   top: 35px;
 }
 
+.contact-details {
+  display: grid;
+  gap: 13px;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #dfe7e9;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.contact-details h2 {
+  margin: 0;
+  color: var(--brand-indigo);
+  font-size: 13px;
+}
+
+.contact-details address,
+.contact-details > a {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--charcoal);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.contact-details > a {
+  width: fit-content;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact-details svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--brand-amber);
+}
+
 .lead-page-aside-card {
   margin-top: 27px;
   padding: 21px;
@@ -5846,6 +5948,85 @@ button {
   background: var(--brand-pale-indigo);
 }
 
+[data-illustration-theme="ai"] {
+  --section-illustration: var(--illustration-ai);
+}
+
+[data-illustration-theme="web-design"] {
+  --section-illustration: var(--illustration-web);
+}
+
+[data-illustration-theme="digital-marketing"] {
+  --section-illustration: var(--illustration-marketing);
+}
+
+[data-illustration-theme="workflow-automation"] {
+  --section-illustration: var(--illustration-workflow);
+}
+
+[data-illustration-theme="collaboration"] {
+  --section-illustration: var(--illustration-collaboration);
+}
+
+[data-illustration-theme="privacy-security"] {
+  --section-illustration: var(--illustration-security);
+}
+
+.specialist-section {
+  --section-illustration: var(--illustration-workflow);
+}
+
+.why-section,
+.service-faq-section {
+  --section-illustration: var(--illustration-collaboration);
+}
+
+.company-principles-section {
+  --section-illustration: var(--illustration-security);
+}
+
+.home-portfolio-section,
+.related-projects-section {
+  --section-illustration: var(--illustration-web);
+}
+
+.process-engagement-section {
+  --section-illustration: var(--illustration-workflow);
+}
+
+:is(
+  .specialist-section,
+  .why-section,
+  .service-content-split,
+  .service-content-soft,
+  .service-category-section,
+  .service-offerings-section,
+  .service-faq-section,
+  .company-mission-section,
+  .company-principles-section,
+  .related-projects-section,
+  .home-portfolio-section,
+  .project-not-found,
+  .privacy-page,
+  .cta-section,
+  .company-hero,
+  .services-overview-hero,
+  .service-detail-hero,
+  .portfolio-page-hero,
+  .project-detail-hero,
+  .process-page-hero,
+  .process-engagement-section,
+  .lead-page-hero
+) {
+  background-color: var(--brand-pale-indigo);
+  background-image:
+    linear-gradient(90deg, rgba(238, 242, 255, 0.65), rgba(238, 242, 255, 0.1)),
+    var(--section-illustration, var(--illustration-ai));
+  background-position: right top;
+  background-size: 100% 100%, max(100%, 960px) auto;
+  background-repeat: no-repeat;
+}
+
 .cta-panel {
   background:
     radial-gradient(ellipse at 93% 5%, rgba(245, 158, 11, 0.24), transparent 37%),
@@ -5854,6 +6035,22 @@ button {
 
 .site-footer {
   background: var(--brand-indigo-deep);
+}
+
+.capabilities-section,
+.company-industries-section,
+.process-quality-section,
+.cta-panel {
+  background-color: var(--brand-indigo-deep);
+  background-image:
+    linear-gradient(90deg, rgba(43, 37, 125, 0.75), rgba(43, 37, 125, 0.12)),
+    image-set(
+      url("/illustrations/digital-ai-background-960.webp") 1x,
+      url("/illustrations/digital-ai-background-1920.webp") 2x
+    );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .service-content-dark .eyebrow,
@@ -5981,8 +6178,8 @@ button {
 }
 
 .hero-copy h1,
-.section-heading h1,
-.section-heading h2,
+.section-heading:where(:not(.section-heading-light)) h1,
+.section-heading:where(:not(.section-heading-light)) h2,
 .service-card h3,
 .feature-card h3,
 .process-step h3,

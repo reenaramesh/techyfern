@@ -7,13 +7,15 @@ type CTASectionProps = {
   eyebrow?: string;
   title?: string;
   description?: string;
+  contactTo?: string;
   reveal?: boolean;
 };
 
 export function CTASection({
-  eyebrow = "YOUR NEXT CHAPTER",
-  title = "Have a good idea? Let’s give it a digital home.",
-  description = "Start with a conversation about your goals, your challenges and where you want to go next.",
+  eyebrow = "LET’S TALK",
+  title = "Ready to improve your digital presence?",
+  description = "Tell us what you need for your website, marketing or business tools. We’ll talk through a practical way to begin.",
+  contactTo = "/contact",
   reveal = false,
 }: CTASectionProps) {
   const content = (
@@ -32,9 +34,9 @@ export function CTASection({
           <p>{description}</p>
         </div>
         <div className="cta-action">
-          <PrimaryButton to="/contact">Discuss Your Project</PrimaryButton>
+          <PrimaryButton to={contactTo}>Talk About Your Project</PrimaryButton>
           <span>
-            No pressure. Just a thoughtful first conversation.
+            Start with a clear conversation about your needs.
             <ArrowUpRight aria-hidden="true" size={14} />
           </span>
         </div>

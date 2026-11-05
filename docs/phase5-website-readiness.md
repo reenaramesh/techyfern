@@ -14,7 +14,7 @@ prerender output, Vite configuration and Django lead integration.
   stop, added active route indicators, and kept the native `details` dropdowns
   keyboard-operable. Escape now closes the desktop services disclosure or
   mobile menu and restores focus to the menu control.
-- Preserved the existing green/teal/charcoal palette, Manrope typography,
+- Applied the approved indigo/amber/charcoal palette and retained Manrope typography,
   original SVG illustrations and distinct service-page content.
 - Split page components into route-level chunks. The server prerenderer now
   waits for lazy routes, so the generated HTML retains full page content.
@@ -43,9 +43,11 @@ prerender output, Vite configuration and Django lead integration.
   excluded from sitemap entries.
 - The static build creates `404.html`; `.htaccess` uses it as an HTTP 404 error
   document and permanently redirects the five retired service URL patterns.
-- No JSON-LD/local-business structured data is added: a verified public
-  business address, contact details, opening hours and other required facts
-  are not available. No social image is fabricated.
+- The business-provided address and phone number are displayed on Contact and
+  in the shared footer. Organization, WebSite, Service and breadcrumb JSON-LD
+  are emitted only when a production origin is configured. LocalBusiness data
+  is omitted because a customer-facing location has not been verified. No
+  social image is fabricated.
 - The live Hostinger response code and crawler behavior cannot be certified
   before deployment.
 
@@ -53,10 +55,10 @@ prerender output, Vite configuration and Django lead integration.
 
 - Production build now emits route-level JavaScript chunks and no longer
   reports the prior single 658 KB JavaScript chunk advisory.
-- Latest safe-default build output reported the main entry chunk at 278.80 KB
-  (86.47 KB gzip), React runtime at 132.98 KB (43.74 KB gzip), Home page at
-  18.69 KB (5.64 KB gzip), and the form component chunk at 130.95 KB
-  (38.62 KB gzip). Page chunks are downloaded as their route is visited.
+- The verified GitHub Pages preview build emitted the main entry chunk at
+  285.86 KB (88.45 KB gzip), React runtime at 133.00 KB (43.75 KB gzip), Home
+  page at 11.70 KB (3.72 KB gzip), and the form component chunk at 128.46 KB
+  (37.88 KB gzip). Page chunks are downloaded as their route is visited.
 - Illustrations are inline SVG/CSS; there are no photographic assets requiring
   responsive image variants or lazy loading.
 - Font CSS requests Manrope with `display=swap`; the font remains externally
@@ -66,17 +68,18 @@ prerender output, Vite configuration and Django lead integration.
 
 ## Mobile and navigation checks
 
-The production preview was checked at 360, 390, 768, 1024 and 1440 CSS pixels
-across 14 routes covering the homepage, About, Services, all five service
-pages, Portfolio, a concept detail, Our Process, Contact, Quotation Request
-and Privacy. Every checked route retained a main landmark and exactly one H1;
-none exceeded the viewport width. At 390px, the mobile menu opened, exposed
-the current service link, and closed on Escape with focus returned to its
-button. The desktop services disclosure also opened and closed on Escape with
-focus restored. Nested Services links measured 44px high; contact form inputs
-measured 43px and the submit control 45px. An unknown route rendered the
-not-found heading and noindex metadata. Hostinger-specific direct-refresh
-behavior and actual HTTP status codes remain unverified until deployment.
+The production preview was checked across 14 routes covering the homepage,
+About, Services, all five service pages, Portfolio, a concept detail, Our
+Process, Contact, Quotation Request and Privacy. A final responsive pass
+checked the homepage, all five service pages and Contact at 360, 390, 430,
+768, 1024 and 1440 CSS pixels (42 route/viewport combinations); none exceeded
+the viewport width. At 390px, the mobile menu closed on Escape with focus
+returned to its button. Contact also verified the service query selection,
+tap-to-call link, supplied address and required-field errors. Earlier checks
+confirmed one H1 and a main landmark per route, keyboard operation of the
+desktop services disclosure, 44px nested Services links, and a noindex
+not-found page. Hostinger-specific direct-refresh behavior and actual HTTP
+status codes remain unverified until deployment.
 
 ## React and Django integration
 
@@ -105,17 +108,17 @@ CSRF-protected.
 |---|---|---|
 | TypeScript | PASS | `npm run typecheck` |
 | ESLint | PASS | `npm run lint` |
-| Frontend build/prerender | PASS | `npm run build`; all known routes and `404.html` rendered |
-| Route build tests | PASS | `npm run test:routes`; metadata, H1, prerender, noindex and 404 output |
-| Sitemap opt-in | PASS | Reserved HTTPS origin emitted 11 eligible URLs; canonical/robots metadata and noindex exclusions verified; safe default build restored |
+| Frontend build/prerender | PASS | GitHub Pages preview `npm run build`; routes rendered with `/techyfern/` base paths |
+| Route build tests | PASS | `npm run test`; all 11 checks pass for metadata, H1, prerender, noindex, contact and service CTAs |
+| Origin-gated metadata/schema and sitemap | PASS | Reserved HTTPS test origin emitted canonical URLs, Organization/WebSite/Service/BreadcrumbList JSON-LD and 11 eligible sitemap URLs; LocalBusiness omitted. Test origin was not retained. |
 | Django system checks | PASS | Local development settings |
 | Django migrations | PASS | `makemigrations --check --dry-run` reports no changes |
 | Django tests | PASS | 14 tests, including contact/quotation, throttling, idempotency, admin permissions, CSRF and CSV export |
-| Responsive route checks | PASS | 14 public routes at 360, 390, 768, 1024 and 1440px; no horizontal overflow, one H1 and main landmark each |
+| Responsive route checks | PASS | 42 route/viewport combinations across seven routes and six widths; no horizontal overflow |
 | Navigation and unknown route | PASS | Mobile/desktop Escape and focus behavior; unknown route has a noindex 404 page |
 | Contact and quotation browser submissions | PASS | Both returned server references through the Vite proxy; temporary QA records removed |
 | Form error handling | PASS | Actual throttling response displayed as an error, not a success confirmation |
-| Python 3.12+ runtime | NOT TESTED | This workspace only has Python 3.10; project policy/production target remains 3.12+ |
+| Python 3.12+ runtime | NOT TESTED | Python 3.10.6 is available; project policy/production target remains 3.12+ |
 | Unit tests for React components | NOT TESTED | No component test runner or unit test suite is configured |
 | Automated accessibility (axe) | NOT TESTED | Manual keyboard and DOM checks only |
 | Lighthouse/Core Web Vitals | NOT TESTED | No score or field performance data collected |
@@ -123,6 +126,9 @@ CSRF-protected.
 
 ## Remaining configuration and earlier incomplete work
 
+- The provided public phone number and Bengaluru address are now shown on the
+  Contact page and in the shared footer. Verify their formatting and
+  availability before release.
 - Earlier phases did not configure the verified production domain, real
   PostgreSQL instance, SMTP company inbox, GA4 measurement ID or a production
   data-retention/deletion schedule. The privacy notice therefore requires

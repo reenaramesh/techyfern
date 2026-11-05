@@ -12,13 +12,15 @@ npm run build
 npm run preview
 npm run lint
 npm run typecheck
+npm run test
 npm run test:routes
 ```
 
 The production build is written to `dist/`. `npm run build` type-checks and
 builds the app, then prerenders the homepage and each known public route to
 static HTML. The generated page metadata and content are present before
-client-side JavaScript runs.
+client-side JavaScript runs. Run `npm run test` or `npm run test:routes` after
+the production build to verify prerendered output.
 
 ## Django lead management
 
@@ -107,6 +109,14 @@ prerender step then writes an accurate sitemap and open robots policy for
 indexable pages. Without both settings, the sitemap is omitted and public
 production pages remain noindex.
 
+The current SEO audit, keyword map, implementation report, marketing plan and
+launch blockers are documented in
+[docs/seo-audit-before.md](./docs/seo-audit-before.md),
+[docs/keyword-mapping.md](./docs/keyword-mapping.md),
+[docs/seo-implementation-report.md](./docs/seo-implementation-report.md),
+[docs/marketing-launch-plan.md](./docs/marketing-launch-plan.md) and
+[docs/launch-readiness-checklist.md](./docs/launch-readiness-checklist.md).
+
 ## Portfolio content
 
 Portfolio entries are defined in `src/lib/portfolioProjects.ts`. Concept
@@ -116,7 +126,6 @@ outcomes only when they are verified.
 
 ## Replaceable brand assets
 
-The approved TechyPraxis logo and navy/cyan palette are used in the site
-header and footer. The standalone TP favicon is still a follow-up because the
-supplied logo does not contain a clean, distinct TP symbol. Do not add
-unverified client claims, reviews, awards or project results.
+The approved TechyPraxis logo and indigo/amber palette are used throughout the
+site, with a matching standalone TP favicon. Do not add unverified client
+claims, reviews, awards or project results.

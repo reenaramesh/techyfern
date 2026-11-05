@@ -15,13 +15,13 @@ export const futurePages: PageDefinition[] = [];
 
 export const contactPage: PageDefinition = {
   path: "/contact/",
-  title: "Contact TechyPraxis Digital | Discuss Your Project",
+  title: "Contact TechyPraxis Digital | Web & Marketing Bengaluru",
   description:
-    "Contact TechyPraxis Digital in Bengaluru to discuss website, marketing, software or automation requirements.",
+    "Talk to TechyPraxis Digital in Bengaluru about website design, digital marketing, business software or automation for your business.",
   eyebrow: "Contact",
-  heading: "Tell us what you would like to make easier.",
+  heading: "What would you like to improve?",
   introduction:
-    "Share a little about your business and the digital challenge you are working through. We’ll use the details to review and respond to your enquiry.",
+    "Tell us what your business does and what you need help with. We’ll review your enquiry and get back to you.",
 };
 
 export const quotationPage: PageDefinition = {
@@ -50,20 +50,20 @@ export const privacyPage: PageDefinition = {
 
 export const aboutPage: PageDefinition = {
   path: "/about/",
-  title: "About TechyPraxis Digital | Practical Digital Solutions",
+  title: "About TechyPraxis Digital | Web Design Bengaluru",
   description:
-    "Learn how TechyPraxis Digital brings website design, software engineering and digital marketing together to solve practical business challenges.",
+    "Meet TechyPraxis Digital, a Bengaluru digital services company helping businesses with website design, digital marketing and software.",
   eyebrow: "About TechyPraxis",
-  heading: "Build a stronger digital foundation, with purpose.",
+  heading: "Clear, practical digital support for your business.",
   introduction:
-    "TechyPraxis Digital brings together creative website design, software engineering and digital marketing to help businesses build stronger digital foundations and grow.",
+    "We help businesses improve their websites, reach customers online and make everyday work easier with useful software.",
 };
 
 export const portfolioPage: PageDefinition = {
   path: "/portfolio/",
   title: "Portfolio & Concept Projects | TechyPraxis Digital",
   description:
-    "Explore approved TechyPraxis Digital case studies when available and clearly labelled concept demonstrations across web design, software, marketing and automation.",
+    "Explore concept demonstrations and approved case studies, when available, across web design, software, marketing and automation.",
   eyebrow: "Portfolio",
   heading: "Selected work, with every project clearly represented.",
   introduction:
@@ -93,24 +93,24 @@ export const notFoundPage: PageDefinition = {
 
 export const homePage: PageDefinition = {
   path: "/",
-  title: "TechyPraxis Digital | Growing Ideas Through Technology",
+  title: "Website Design in Bengaluru | TechyPraxis Digital",
   description:
-    "TechyPraxis Digital helps businesses build, connect and grow through websites, digital marketing, business software and automation.",
-  eyebrow: "Digital made purposeful",
-  heading: "Smart Digital Solutions for Growing Businesses.",
+    "Need a website, digital marketing or business software? TechyPraxis Digital helps businesses in Bengaluru choose a practical next step.",
+  eyebrow: "Digital services for Bengaluru businesses",
+  heading: "Website design and digital marketing for Bengaluru businesses.",
   introduction:
-    "From professional websites and custom business applications to digital marketing and intelligent automation, TechyPraxis Digital helps businesses build, connect and grow.",
+    "Need a better website, digital marketing or software that saves time? TechyPraxis Digital helps you find a clear, practical way forward.",
 };
 
 export const servicesOverviewPage: PageDefinition = {
   path: "/services/",
-  title: "Digital Services for Growing Businesses | TechyPraxis Digital",
+  title: "Web Design Services Bengaluru | TechyPraxis Digital",
   description:
-    "Explore website development, digital marketing, business software, web applications and AI automation services from TechyPraxis Digital.",
+    "Explore website design, SEO, digital marketing, custom web apps and business software for businesses in Bengaluru.",
   eyebrow: "Our services",
-  heading: "The right digital support for your next step.",
+  heading: "What can we help your business do?",
   introduction:
-    "Build a stronger online presence, reach the right audience or make everyday work easier. Explore connected services shaped around the needs of your business.",
+    "Create a website customers can use, help more people find your business or simplify everyday tasks with software. Explore our services and find a good place to start.",
 };
 
 export function getPageDefinition(pathname: string): PageDefinition {

@@ -1,5 +1,6 @@
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { siteContact } from "../lib/siteContact";
 import { BrandLogo } from "./BrandLogo";
 import { PageContainer } from "./PageContainer";
 
@@ -30,9 +31,14 @@ export function Footer() {
               Digital experiences and practical technology for growing
               businesses.
             </p>
-            <p className="footer-location">
-              <MapPin size={16} aria-hidden="true" /> Bengaluru, India
-            </p>
+            <address className="footer-location">
+              <MapPin size={16} aria-hidden="true" />
+              <span>{siteContact.address}</span>
+            </address>
+            <a className="footer-location footer-phone" href={siteContact.phoneHref}>
+              <Phone size={16} aria-hidden="true" />
+              <span>{siteContact.phoneDisplay}</span>
+            </a>
           </div>
 
           <div className="footer-link-column">

@@ -1,23 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm, type UseFormRegisterReturn } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { z } from "zod";
+import { serviceOptions, type ServiceCategory } from "../lib/siteContact";
 import {
   getApiErrorMessage,
   leadSubmissionsEnabled,
   submitLeadRequest,
 } from "../lib/leadApi";
 import { trackAnalyticsEvent } from "../lib/analytics";
-
-const serviceOptions = [
-  { value: "website_design", label: "Website Design & Development" },
-  { value: "digital_marketing", label: "Digital Marketing & SEO" },
-  { value: "business_technology", label: "Business Technology Solutions" },
-  { value: "web_application", label: "Web Application Development" },
-  { value: "ai_automation", label: "AI & Business Automation" },
-  { value: "other", label: "Other" },
-];
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Enter your name.").max(160),
@@ -143,7 +135,11 @@ function Honeypot({ field }: { field: UseFormRegisterReturn<"website"> }) {
   );
 }
 
-export function ContactLeadForm() {
+export function ContactLeadForm({
+  defaultService = "other",
+}: {
+  defaultService?: ServiceCategory;
+}) {
   const [requestKey, setRequestKey] = useState<string | null>(null);
   const [submission, setSubmission] = useState<SubmissionState>({ kind: "idle" });
   const {
@@ -159,7 +155,7 @@ export function ContactLeadForm() {
       email: "",
       phone: "",
       business: "",
-      service: "website_design",
+      service: defaultService,
       message: "",
       privacy_consent: false,
       website: "",
@@ -300,9 +296,14 @@ export function ContactLeadForm() {
   );
 }
 
-export function QuotationRequestForm() {
+export function QuotationRequestForm({
+  defaultService = "other",
+}: {
+  defaultService?: ServiceCategory;
+}) {
   const [requestKey, setRequestKey] = useState<string | null>(null);
   const [submission, setSubmission] = useState<SubmissionState>({ kind: "idle" });
+  const quoteStartTracked = useRef(false);
   const {
     register,
     handleSubmit,
@@ -316,7 +317,7 @@ export function QuotationRequestForm() {
       email: "",
       phone: "",
       business: "",
-      service_category: "website_design",
+      service_category: defaultService,
       project_description: "",
       budget_range: "",
       timeline: "",
@@ -401,7 +402,16 @@ export function QuotationRequestForm() {
   }
 
   return (
-    <form className="lead-form" noValidate onSubmit={submit}>
+    <form
+      className="lead-form"
+      noValidate
+      onFocusCapture={() => {
+        if (quoteStartTracked.current) return;
+        quoteStartTracked.current = true;
+        trackAnalyticsEvent("quote_request_start");
+      }}
+      onSubmit={submit}
+    >
       {!leadSubmissionsEnabled && (
         <p className="lead-form-alert" role="note">
           Preview only: submissions are disabled. Do not enter personal or

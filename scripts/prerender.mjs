@@ -58,6 +58,9 @@ try {
   const basePath = server.config.base.replace(/\/+$/, "");
   const withBasePath = (path) => `${basePath}${path}` || "/";
   const { render } = await server.ssrLoadModule("/src/entry-server.tsx");
+  const { getStructuredData } = await server.ssrLoadModule(
+    "/src/lib/structuredData.ts",
+  );
   const {
     homePage,
     futurePages,
@@ -144,6 +147,14 @@ try {
       output = output.replace(
         "</head>",
         `    <link rel="canonical" href="${canonicalUrl}" />\n    <meta property="og:url" content="${canonicalUrl}" />\n  </head>`,
+      );
+    }
+    const structuredData = getStructuredData(page, siteUrl);
+    if (structuredData) {
+      const json = JSON.stringify(structuredData).replaceAll("<", "\\u003c");
+      output = output.replace(
+        "</head>",
+        `    <script id="techypraxis-structured-data" type="application/ld+json">${json}</script>\n  </head>`,
       );
     }
     await mkdir(dirname(outputPath), { recursive: true });

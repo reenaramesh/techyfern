@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   Building2,
   ChartNoAxesCombined,
+  Check,
   Code2,
   Compass,
   FileText,
@@ -24,6 +25,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { PageDefinition } from "./pages";
+import type { ServiceCategory } from "./siteContact";
 
 export type ServiceFaq = { question: string; answer: string };
 export type ServiceItem = {
@@ -41,6 +43,7 @@ export type ServiceSection = {
 
 export type DetailedService = PageDefinition & {
   shortName: string;
+  enquiryCategory: ServiceCategory;
   icon: LucideIcon;
   visualLabel: string;
   visualMetrics: { label: string; value: string; icon: LucideIcon }[];
@@ -60,31 +63,31 @@ export const serviceGroups = [
     number: "01",
     title: "Website Design & Development",
     description:
-      "A responsive, considered website that earns trust, answers real customer questions and makes the next step clear.",
+      "Get a clear, mobile-friendly website that explains your services and helps customers know what to do next.",
     icon: Globe2,
     to: "/website-design/",
     highlights: ["Business and corporate websites", "WordPress and React", "E-commerce and landing pages"],
-    benefit: "Give customers a clearer, more useful experience of your business.",
+    benefit: "Help customers understand your business and find the information they need.",
   },
   {
     number: "02",
     title: "Digital Marketing & Business Growth",
     description:
-      "Bring organic search, local visibility, paid campaigns and useful measurement together around your business goals.",
+      "Use SEO, local search and online ads to help more potential customers find your business.",
     icon: ChartNoAxesCombined,
     to: "/digital-marketing/",
     highlights: ["SEO and local SEO", "Google and social advertising", "Analytics and reporting"],
-    benefit: "Understand where attention comes from and make informed improvements.",
+    benefit: "See how your online marketing is working and what you could improve.",
   },
   {
     number: "03",
     title: "Business Technology & Software Solutions",
     description:
-      "Make day-to-day business tasks easier to manage with connected workflows and software designed around your operations.",
+      "Make everyday tasks easier with business software, connected tools and simpler workflows.",
     icon: Settings2,
     to: "/business-tech-solutions/",
     highlights: ["Customer and business management", "Billing, inventory and workflows", "Dashboards and automation"],
-    benefit: "Spend less time coordinating information across disconnected processes.",
+    benefit: "Keep business information and routine work easier to manage.",
   },
 ];
 
@@ -92,14 +95,14 @@ export const specialistServices = [
   {
     title: "Web Application Development",
     description:
-      "Custom portals, platforms and dashboards for customer-facing products or internal workflows.",
+      "Build custom web apps, portals and dashboards for your customers or team.",
     icon: AppWindow,
     to: "/web-app-development/",
   },
   {
     title: "AI & Business Automation",
     description:
-      "Thoughtful AI integrations and automation for suitable, repeatable business tasks.",
+      "Explore practical AI and automation for routine tasks that follow clear steps.",
     icon: Bot,
     to: "/ai-automation/",
   },
@@ -117,13 +120,14 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/website-design/",
     shortName: "Website design",
-    title: "Website Design & Development | TechyPraxis Digital",
+    enquiryCategory: "website_design",
+    title: "Website Design Bengaluru | TechyPraxis Digital",
     description:
-      "Plan and build responsive business websites, corporate sites, WordPress and React websites, e-commerce stores and landing pages with TechyPraxis Digital.",
+      "Need a website in Bengaluru? Explore responsive business websites, WordPress, e-commerce and website redesign with TechyPraxis Digital.",
     eyebrow: "Website design & development",
-    heading: "A website that makes your business easier to choose.",
+    heading: "Website design and development in Bengaluru.",
     introduction:
-      "Your website often shapes a customer’s first impression. We create clear, responsive digital experiences that explain what you do, work smoothly across devices and help visitors take a useful next step.",
+      "Need a new website or an update to your current one? We design and build websites for Bengaluru businesses that clearly explain what you do and work on mobile, tablet and desktop.",
     icon: MonitorSmartphone,
     visualLabel: "A clearer digital front door",
     visualMetrics: [
@@ -157,6 +161,19 @@ export const detailedServices: DetailedService[] = [
           { title: "Online stores", description: "Organize product information and shopping journeys so customers can make informed choices.", icon: ShoppingBag },
           { title: "Campaign landing pages", description: "Keep attention on a particular service, campaign or enquiry action.", icon: FileText },
           { title: "Editorial and content sites", description: "Make it easier to publish and maintain useful articles, updates or resources.", icon: Globe2 },
+        ],
+      },
+      {
+        eyebrow: "Design & development",
+        title: "Plan the experience, then build it to work.",
+        description:
+          "Design sets the structure, content hierarchy and visual direction. Development turns the approved plan into working pages, interactions and integrations. Both are considered together so the finished site is useful to visitors and manageable for your team.",
+        variant: "soft",
+        items: [
+          { title: "Information architecture", description: "Organize pages and navigation around what customers need to understand.", icon: Layers3 },
+          { title: "Visual and interaction design", description: "Define how pages look and how visitors move through important tasks.", icon: Accessibility },
+          { title: "Responsive development", description: "Build pages and interactions to adapt across phones, tablets and desktops.", icon: Code2 },
+          { title: "Review and handover", description: "Check agreed journeys, links and screen sizes before release planning.", icon: Check },
         ],
       },
       {
@@ -194,6 +211,7 @@ export const detailedServices: DetailedService[] = [
     ],
     faqs: [
       { question: "What types of websites can you build?", answer: "Projects can include business and corporate websites, WordPress or React sites, e-commerce experiences and campaign landing pages. The right format depends on the goals, content and workflows involved." },
+      { question: "What is the difference between website design and development?", answer: "Design plans the content structure, visual presentation and interactions. Development implements those plans as working pages and features. A project may include both, or focus on the area that needs attention." },
       { question: "Will my website work on mobile phones?", answer: "Responsive design is part of the approach. Layouts and interactions are considered across phone, tablet and desktop widths and checked during review." },
       { question: "Can you improve an existing website?", answer: "Yes. We can review an existing site and discuss redesign, content structure, usability, speed or maintenance needs before agreeing a suitable scope." },
       { question: "Do you guarantee more leads or sales?", answer: "No. A clear and usable website can support customer confidence and make enquiry steps easier, but outcomes depend on many factors and are not guaranteed." },
@@ -207,13 +225,14 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/digital-marketing/",
     shortName: "Digital marketing",
-    title: "Digital Marketing & SEO Services | TechyPraxis Digital",
+    enquiryCategory: "digital_marketing",
+    title: "Digital Marketing & SEO Bengaluru | TechyPraxis Digital",
     description:
-      "Explore SEO, local SEO, Google Ads, social media campaigns, conversion improvement, analytics and reporting for growing businesses.",
+      "Explore SEO, local search and online advertising for Bengaluru businesses. TechyPraxis Digital helps you choose practical ways to reach customers.",
     eyebrow: "Digital marketing & business growth",
-    heading: "Help the right people find and understand your business.",
+    heading: "Digital marketing services in Bengaluru.",
     introduction:
-      "Digital marketing works best when the audience, message and measurement make sense together. We help businesses plan organic search improvements and paid campaigns, then review what the available data can tell us.",
+      "Help more people find your business online with SEO, local search and paid advertising. We’ll help you choose channels that suit your goals and review what the available data can tell you. Search rankings and campaign results are not guaranteed.",
     icon: Megaphone,
     visualLabel: "Visibility with a plan",
     visualMetrics: [
@@ -227,14 +246,15 @@ export const detailedServices: DetailedService[] = [
       "Reports show numbers but do not make the next decision easier.",
     ],
     offerings: [
-      { title: "Search engine optimization", description: "Improve technical, on-page and content foundations for relevant organic discovery.", icon: Search },
+      { title: "Technical SEO", description: "Review crawlability, indexing signals, site structure, page performance and technical errors.", icon: Settings2 },
+      { title: "On-page SEO", description: "Improve page titles, headings, content structure and internal links around visitor intent.", icon: Search },
       { title: "Local SEO", description: "Strengthen location-relevant information and local search signals.", icon: Globe2 },
       { title: "Google Business Profile optimization", description: "Review business profile information, categories, services and customer-facing details.", icon: Building2 },
-      { title: "Google Ads", description: "Plan and manage search or other suitable Google advertising campaigns.", icon: ChartNoAxesCombined },
-      { title: "Facebook & Instagram Ads", description: "Build paid social campaigns around defined audiences, creative and objectives.", icon: Megaphone },
+      { title: "Google Search & Display Ads", description: "Plan suitable Google campaigns around an agreed audience, objective and budget.", icon: ChartNoAxesCombined },
+      { title: "Meta Ads", description: "Plan Facebook and Instagram campaigns around defined audiences, creative and objectives.", icon: Megaphone },
       { title: "Social media marketing", description: "Plan practical content and publishing activity suited to your business and channels.", icon: Network },
-      { title: "Content marketing & conversion optimization", description: "Create helpful content and review pages or journeys where visitors may need clarity.", icon: FileText },
-      { title: "Analytics and campaign reporting", description: "Use GA4, Search Console and Tag Manager where appropriate to review activity.", icon: Activity },
+      { title: "Content marketing", description: "Plan useful articles and service content around customer questions and business priorities.", icon: FileText },
+      { title: "Conversion tracking & reporting", description: "Review GA4, Google Tag Manager and campaign reporting where access, configuration and privacy requirements allow.", icon: Activity },
     ],
     sections: [
       {
@@ -275,6 +295,19 @@ export const detailedServices: DetailedService[] = [
           { title: "Campaign reports", description: "Summarize spend, reach, visits or other agreed metrics with their limitations.", icon: ChartNoAxesCombined },
         ],
       },
+      {
+        eyebrow: "For Bengaluru businesses",
+        title: "Make local information accurate and useful.",
+        description:
+          "For small businesses and service companies serving Bengaluru, local visibility starts with consistent, verifiable business details and pages that answer real customer questions. It does not require making unsupported claims or creating near-duplicate pages for every neighbourhood.",
+        variant: "soft",
+        items: [
+          { title: "Business profile details", description: "Keep approved contact information, categories and service descriptions consistent.", icon: Building2 },
+          { title: "Service-area content", description: "Explain the locations and services the business actually supports.", icon: Globe2 },
+          { title: "Useful local pages", description: "Write original content for real services and customer needs rather than doorway pages.", icon: FileText },
+          { title: "Privacy-aware measurement", description: "Check consent and tracking configuration before activating analytics or advertising tags.", icon: ShieldCheck },
+        ],
+      },
     ],
     process: [
       { title: "Discover", description: "Understand the business, audience, offer, current channels and constraints." },
@@ -297,13 +330,14 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/web-app-development/",
     shortName: "Web applications",
-    title: "Web Application Development | TechyPraxis Digital",
+    enquiryCategory: "web_application",
+    title: "Web App Development Bengaluru | TechyPraxis Digital",
     description:
-      "Plan custom web applications, SaaS platforms, portals, booking systems, dashboards, API integrations and business applications with TechyPraxis Digital.",
+      "Plan a custom web application, customer portal or dashboard for your business with TechyPraxis Digital in Bengaluru.",
     eyebrow: "Web application development",
-    heading: "Software shaped around the way people need to work.",
+    heading: "Custom web application development in Bengaluru.",
     introduction:
-      "When standard tools do not fit a workflow or product idea, a web application can bring the right tasks and information together. We start with requirements and users, then plan an approach through build, testing and deployment.",
+      "When existing tools do not fit the way your team works, a custom web application may help. We start by understanding who will use it and what they need to do, then plan the right features for a first release.",
     icon: AppWindow,
     visualLabel: "One useful workflow at a time",
     visualMetrics: [
@@ -324,7 +358,7 @@ export const detailedServices: DetailedService[] = [
       { title: "Management dashboards", description: "Views that bring selected operational information into one place.", icon: ChartNoAxesCombined },
       { title: "API and database applications", description: "Connect application interfaces with data and approved external services.", icon: Settings2 },
       { title: "React frontend development", description: "Interactive interfaces with reusable components and clear states.", icon: Code2 },
-      { title: "Backend application development", description: "Application logic and service integrations planned to meet project requirements.", icon: Workflow },
+      { title: "Python & Django backend development", description: "Plan application logic, data handling and service integrations around agreed project requirements.", icon: Workflow },
     ],
     sections: [
       {
@@ -352,6 +386,19 @@ export const detailedServices: DetailedService[] = [
           { title: "Test and deploy", description: "Review key flows and prepare a deployment and ongoing support plan.", icon: ShieldCheck },
         ],
       },
+      {
+        eyebrow: "Data, access & safeguards",
+        title: "Plan for the people and information behind the interface.",
+        description:
+          "Applications may handle customer or business records. Roles, permissions, data collection, backups, hosting and maintenance need to be considered for the specific use case and agreed before release.",
+        variant: "split",
+        items: [
+          { title: "User roles", description: "Give users access appropriate to their tasks and responsibilities.", icon: Network },
+          { title: "Data boundaries", description: "Define what information is collected, where it is stored and who can use it.", icon: ShieldCheck },
+          { title: "Integration review", description: "Confirm access, data exchange and failure handling for connected services.", icon: Settings2 },
+          { title: "Testing and support", description: "Check key flows and make hosting, updates and support ownership explicit.", icon: Check },
+        ],
+      },
     ],
     process: [
       { title: "Requirements", description: "Map users, workflows, rules, data and project constraints." },
@@ -374,13 +421,14 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/business-tech-solutions/",
     shortName: "Business technology",
-    title: "Business Technology & Software Solutions | TechyPraxis Digital",
+    enquiryCategory: "business_technology",
+    title: "Business Software Bengaluru | TechyPraxis Digital",
     description:
-      "Explore practical CRM, business management, billing, attendance, inventory, vendor, task and reporting software solutions for growing businesses.",
+      "Explore business software for enquiries, quotes, inventory and team workflows. TechyPraxis Digital helps Bengaluru businesses find a practical fit.",
     eyebrow: "Business technology & software",
-    heading: "Make everyday business work easier to manage.",
+    heading: "Business software and technology in Bengaluru.",
     introduction:
-      "As a business grows, information can become scattered across messages, spreadsheets and separate tools. We help identify the process that needs attention and explore a practical system or workflow to support it.",
+      "Too much time spent tracking enquiries, quotes, stock or tasks? We help businesses in Bengaluru review their workflows and decide whether to improve an existing tool, connect systems or build custom software.",
     icon: Settings2,
     visualLabel: "Operations, made more connected",
     visualMetrics: [
@@ -455,13 +503,14 @@ export const detailedServices: DetailedService[] = [
   {
     path: "/ai-automation/",
     shortName: "AI & automation",
-    title: "AI & Business Automation | TechyPraxis Digital",
+    enquiryCategory: "ai_automation",
+    title: "AI Automation Bengaluru | TechyPraxis Digital",
     description:
-      "Explore practical AI-assisted workflows, customer support, lead management, document processing and business automation with TechyPraxis Digital.",
+      "Explore practical AI and business automation for repetitive tasks, with clear checks and human review when needed.",
     eyebrow: "AI & business automation",
-    heading: "Use automation thoughtfully, where it helps.",
+    heading: "AI and business automation in Bengaluru.",
     introduction:
-      "Automation can help with repeatable steps; AI can assist with some language and information tasks. We help assess suitable use cases, data considerations and human review so a workflow remains understandable and accountable.",
+      "Spend less time on repetitive tasks with practical business automation. We help you assess whether automation or AI suits a specific task, with clear checks and human review where needed.",
     icon: Bot,
     visualLabel: "Human-guided automation",
     visualMetrics: [

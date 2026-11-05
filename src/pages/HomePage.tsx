@@ -4,12 +4,9 @@ import {
   Check,
   CircleHelp,
   Code2,
-  Compass,
   Layers3,
-  Network,
   Search,
   ShieldCheck,
-  Sparkles,
   Target,
   Workflow,
   Wrench,
@@ -19,6 +16,7 @@ import { Link } from "react-router-dom";
 import { CTASection } from "../components/CTASection";
 import { FAQAccordion } from "../components/FAQAccordion";
 import { FeatureCard, ServiceCard } from "../components/Cards";
+import { EditorialIllustration } from "../components/EditorialIllustration";
 import { Hero } from "../components/Hero";
 import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton, SecondaryButton } from "../components/Buttons";
@@ -125,8 +123,8 @@ export function HomePage() {
           <div className="section-topline">
             <SectionHeading
               eyebrow="What we do"
-              title="Three connected foundations for your business."
-              description="Start with the area that matters most: a clear digital presence, more informed marketing or technology that supports everyday work."
+              title="The digital services your business needs."
+              description="Get a useful website, reach more of the right people through digital marketing, or make daily work simpler with technology."
             />
             <Link className="text-link section-toplink" to="/services/">
               View all services <ArrowRight size={16} aria-hidden="true" />
@@ -153,13 +151,13 @@ export function HomePage() {
         <PageContainer className="problems-layout">
           <div className="problems-intro">
             <SectionHeading
-              eyebrow="A better way forward"
-              title="Good technology solves real business problems."
-              description="When digital tools feel disconnected or your online presence falls behind, it can be hard to know what to tackle first. Start with the friction; build from there."
+              eyebrow="Start with what you need"
+              title="Find a practical answer to your business challenge."
+              description="An outdated website, unclear marketing or repetitive tasks can get in the way. We help you look at the problem and choose a sensible next step."
               light
             />
             <SecondaryButton to="/contact" icon>
-              Talk through a challenge
+              Tell Us What You Need
             </SecondaryButton>
           </div>
           <div className="problem-card-grid">
@@ -181,9 +179,9 @@ export function HomePage() {
         <PageContainer>
           <div className="section-topline">
             <SectionHeading
-              eyebrow="Specialist capabilities"
-              title="Purpose-built solutions for specific workflows."
-              description="When your needs go beyond a standard website or campaign, explore custom applications and practical automation."
+              eyebrow="More ways we can help"
+              title="Custom web apps and business automation."
+              description="Have a workflow that off-the-shelf tools do not handle well? Explore custom web application development and automation for repetitive tasks."
             />
             <Link className="text-link section-toplink" to="/contact">
               Talk through a workflow <ArrowRight size={16} aria-hidden="true" />
@@ -217,17 +215,14 @@ export function HomePage() {
           <div className="why-copy">
             <SectionHeading
               eyebrow="Why TechyPraxis Digital"
-              title="Technology is better when it starts with people."
-              description="A website, campaign or application is only useful when it helps someone do something better. We bring creative website design, software engineering and digital marketing together around practical business goals."
+              title="Good digital work starts with your goals."
+              description="Your website, marketing and software should make something easier for your customers or your team. We start by understanding what you need, then discuss practical options."
             />
-            <PrimaryButton to="/about">More about TechyPraxis</PrimaryButton>
-            <div aria-hidden="true" className="why-graphic">
-              <span className="why-graphic-orbit" />
-              <span className="why-graphic-core">T</span>
-              <span className="why-node why-node-one"><Compass size={16} /></span>
-              <span className="why-node why-node-two"><Sparkles size={16} /></span>
-              <span className="why-node why-node-three"><Network size={16} /></span>
-            </div>
+            <PrimaryButton to="/about">Meet TechyPraxis Digital</PrimaryButton>
+            <EditorialIllustration
+              className="why-editorial-illustration"
+              kind="collaboration"
+            />
           </div>
           <div className="why-feature-grid">
             {benefits.map((benefit) => (
@@ -246,9 +241,9 @@ export function HomePage() {
         <PageContainer>
           <SectionHeading
             align="center"
-            eyebrow="Our working process"
-            title="Clear steps. Shared direction."
-            description="A collaborative, considered approach keeps the work focused from the first conversation through to the next iteration."
+            eyebrow="How we work"
+            title="Know what happens next."
+            description="We learn what you need, agree on the work, then share progress as we design, build or improve your digital solution."
           />
           <div className="process-grid">
             {processSteps.map((step) => (
@@ -273,8 +268,8 @@ export function HomePage() {
           <div className="section-topline">
             <SectionHeading
               eyebrow="CONCEPT PROJECTS"
-              title="Explore ideas through illustrative demos."
-              description="These original concepts show possible approaches to common digital challenges. They are not presented as completed client work."
+              title="See ideas for solving digital challenges."
+              description="Browse original demonstrations of possible website and software ideas. These are concepts, not completed client projects."
             />
             <Link className="text-link section-toplink" to="/portfolio/">
               Browse all concepts <ArrowRight size={16} aria-hidden="true" />
@@ -293,8 +288,8 @@ export function HomePage() {
           <div className="capabilities-intro">
             <SectionHeading
               eyebrow="Technology capabilities"
-              title="Choose technology to fit the work."
-              description="The examples shown reflect tools used in this website and the services described here. The right approach depends on your goals, existing systems and ongoing needs."
+              title="The right tools depend on your project."
+              description="We discuss technology that fits your goals, existing systems and the way your team works. The examples below are options, not a fixed package."
               light
             />
           </div>

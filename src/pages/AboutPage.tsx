@@ -8,6 +8,7 @@ import {
   Target,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { EditorialIllustration } from "../components/EditorialIllustration";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { CTASection } from "../components/CTASection";
 import { PageContainer } from "../components/PageContainer";
@@ -58,24 +59,17 @@ export function AboutPage() {
           <div className="company-hero-layout">
             <div className="company-hero-copy">
               <p className="eyebrow">ABOUT TECHYPRAXIS DIGITAL</p>
-              <h1>Technology and creativity, working toward the same goal.</h1>
+              <h1>Digital services made clear and practical.</h1>
               <p>
-                TechyPraxis Digital brings together creative website design,
-                software engineering and digital marketing to help businesses
-                build stronger digital foundations and grow.
+                We help businesses in Bengaluru with website design, digital
+                marketing and software. Start with a clear conversation about
+                what your business needs.
               </p>
               <Link className="text-link" to="/services/">
                 Explore what we do <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <div aria-hidden="true" className="company-hero-visual">
-              <span className="company-orbit company-orbit-one" />
-              <span className="company-orbit company-orbit-two" />
-              <span className="company-orbit-core">T</span>
-              <span className="company-orbit-node company-orbit-node-one">WEB</span>
-              <span className="company-orbit-node company-orbit-node-two">BUILD</span>
-              <span className="company-orbit-node company-orbit-node-three">GROW</span>
-            </div>
+            <EditorialIllustration kind="collaboration" priority />
           </div>
         </PageContainer>
       </section>
@@ -85,16 +79,15 @@ export function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Our purpose"
-              title="Make digital work more useful for business."
-              description="Businesses can lose time and opportunity when their website, marketing and everyday tools do not support one another. We help connect those parts around practical goals."
+              title="Make your website, marketing and tools more useful."
+              description="When your website, marketing and work tools do not fit together, it can be hard to know what to improve. We help you focus on the need and explore practical options."
             />
           </div>
           <div className="company-purpose-note">
             <Compass size={22} aria-hidden="true" />
             <p>
-              We help businesses improve how they show up online, manage
-              important workflows and make informed decisions about what to
-              build next.
+              We help businesses improve their online presence, simplify
+              everyday tasks and decide what to work on next.
             </p>
           </div>
         </PageContainer>
@@ -105,21 +98,19 @@ export function AboutPage() {
           <article>
             <span className="company-mission-icon"><Target size={21} /></span>
             <p className="eyebrow">OUR MISSION</p>
-            <h2>Bring clarity to digital challenges.</h2>
+            <h2>Make digital challenges easier to solve.</h2>
             <p>
-              Help growing businesses choose and create useful digital
-              experiences, software and marketing foundations that respond to
-              real needs.
+              Help businesses choose useful websites, software and marketing
+              that fit their needs.
             </p>
           </article>
           <article>
             <span className="company-mission-icon"><Compass size={21} /></span>
             <p className="eyebrow">OUR VISION</p>
-            <h2>A more connected way to grow.</h2>
+            <h2>Help businesses use technology with confidence.</h2>
             <p>
-              Work toward a future where businesses can use technology with
-              confidence: intentionally, responsibly and in ways their teams
-              can sustain.
+              Support businesses in using technology thoughtfully and in ways
+              their teams can manage.
             </p>
           </article>
         </PageContainer>
@@ -129,8 +120,8 @@ export function AboutPage() {
         <PageContainer>
           <SectionHeading
             eyebrow="What we do"
-            title="One connected digital toolkit."
-            description="A clear website can support marketing. Useful software can support service delivery. Thoughtful measurement can help teams decide what to improve. We bring these disciplines into the same conversation."
+            title="Website design, marketing and business software."
+            description="A clear website helps customers understand your business. Digital marketing helps people find it. Useful software can make work easier for your team. We can help you explore each of these."
           />
           <div className="company-services-row">
             <Link to="/website-design/"><span>01</span><b>Digital presence</b><small>Websites and digital experiences</small><ArrowRight size={17} /></Link>
@@ -162,9 +153,9 @@ export function AboutPage() {
       <section className="company-industries-section section-space">
         <PageContainer className="company-industries-layout">
           <SectionHeading
-            eyebrow="Industries we can serve"
-            title="Different contexts. A shared focus on the people doing the work."
-            description="Our services can be shaped for a range of business contexts. These are areas we can support, not a list of claimed clients or completed engagements."
+            eyebrow="Businesses we can support"
+            title="Digital help for different kinds of businesses."
+            description="We can discuss website, marketing and software needs across these business types. This is not a list of claimed clients or completed projects."
             light
           />
           <ul className="company-industry-list">
@@ -181,8 +172,8 @@ export function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Working together"
-              title="Good collaboration makes better decisions possible."
-              description="We start with your context, agree what is in scope and share progress at meaningful review points. You stay involved in decisions that affect your customers, team and operations."
+              title="Work together, with clear next steps."
+              description="We learn about your business, agree what is included and share progress at key points. You stay involved in decisions that affect your customers and team."
             />
             <Link className="text-link" to="/our-process/">
               See how our process works <ArrowRight size={16} aria-hidden="true" />
@@ -192,8 +183,8 @@ export function AboutPage() {
       </section>
       <CTASection
         eyebrow="START A CONVERSATION"
-        title="Bring us the challenge you are working through."
-        description="We can explore the business need together and discuss a practical next step."
+        title="Tell us what you would like to improve."
+        description="We can learn about your business, talk through your options and help identify a practical next step."
       />
     </>
   );

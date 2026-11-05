@@ -50,7 +50,14 @@ test("known routes contain prerendered content and unique page metadata", async 
     assert.doesNotMatch(html, /Techyfern Digital/i);
     assert.ok(!seenTitles.has(title), `${route} should have a unique title`);
     seenTitles.add(title);
-    assert.match(html, /<meta name="description" content="[^"]+"/);
+    const description = html.match(
+      /<meta name="description" content="([^"]+)"/,
+    )?.[1];
+    assert.ok(description, `${route} must have a meta description`);
+    assert.ok(
+      description.length <= 160,
+      `${route} description is ${description.length} characters`,
+    );
     assert.match(
       html,
       new RegExp(
@@ -93,16 +100,16 @@ test("homepage separates primary service areas from specialist capabilities", as
   assert.ok(specialistSection, "homepage should render its specialist grid");
   assert.equal((primarySection.match(/class="service-card"/g) ?? []).length, 3);
   assert.equal((specialistSection.match(/class="service-card"/g) ?? []).length, 2);
-  assert.match(home, /Three connected foundations for your business/);
-  assert.match(home, /Purpose-built solutions for specific workflows/);
+  assert.match(home, /The digital services your business needs/);
+  assert.match(home, /Custom web apps and business automation/);
   assert.doesNotMatch(home, /Built with intention/);
 });
 
 test("homepage animation content stays visible in prerendered HTML", async () => {
   const home = await readFile(routeFile("/"), "utf8");
 
-  assert.match(home, /Smart Digital Solutions for Growing Businesses\./);
-  assert.match(home, /Three connected foundations for your business\./);
+  assert.match(home, /Website design and digital marketing for Bengaluru businesses\./);
+  assert.match(home, /The digital services your business needs\./);
   assert.doesNotMatch(
     home,
     /style="[^"]*(?:opacity:\s*0|transform:\s*translateY\()/i,
@@ -118,7 +125,16 @@ test("build keeps preview pages noindex and excludes a sitemap", async () => {
     assert.match(robots, /Disallow: \//);
   }
   assert.match(home, /<meta name="robots" content="noindex, nofollow"/);
+  assert.doesNotMatch(home, /application\/ld\+json/);
   await assert.rejects(readFile(join(outputDirectory, "sitemap.xml")));
+});
+
+test("contact page publishes the supplied address and tap-to-call phone number", async () => {
+  const contact = await readFile(routeFile("/contact/"), "utf8");
+
+  assert.match(contact, /12th Cross, Annasandrapalya, Vinayaka Nagar, HAL, Bengaluru 560017, India/);
+  assert.match(contact, /href="tel:\+919986752890"/);
+  assert.match(contact, /9986752890/);
 });
 
 test("portfolio search describes the fields it can find", async () => {
@@ -153,6 +169,25 @@ test("all five service routes include scope, process, FAQs, and related services
   }
 });
 
+test("service pages link to contact with their service preselected", async () => {
+  const serviceCategories = [
+    ["website-design", "website_design"],
+    ["digital-marketing", "digital_marketing"],
+    ["web-app-development", "web_application"],
+    ["business-tech-solutions", "business_technology"],
+    ["ai-automation", "ai_automation"],
+  ];
+
+  for (const [route, category] of serviceCategories) {
+    const html = await readFile(routeFile(`/${route}/`), "utf8");
+    const expectedHref = `${basePath}/contact/?service=${category}`;
+    assert.ok(
+      html.includes(`href="${expectedHref}"`),
+      `${route} should preselect its service in the contact form`,
+    );
+  }
+});
+
 test("GitHub Pages preview uses repository-relative assets and disables lead submissions", async (context) => {
   if (!isGitHubPagesPreview) {
     context.skip("GitHub Pages build variables are not enabled.");
@@ -164,6 +199,12 @@ test("GitHub Pages preview uses repository-relative assets and disables lead sub
   const escapedBasePath = basePath.replaceAll("/", "\\/");
   assert.match(home, new RegExp(`href="${escapedBasePath}\\/favicon\\.svg"`));
   assert.match(home, new RegExp(`src="${escapedBasePath}\\/assets\\/`));
+  assert.ok(
+    home.includes(
+      `${basePath}/illustrations/digital-ai-background-light-960.webp`,
+    ),
+  );
+  assert.doesNotMatch(home, /application\/ld\+json/);
   assert.match(home, /<meta name="robots" content="noindex, nofollow"/);
   assert.match(home, /static website preview/);
   assert.match(home, /SCOPE-LED/);

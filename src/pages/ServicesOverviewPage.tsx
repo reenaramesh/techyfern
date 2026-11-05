@@ -6,9 +6,8 @@ import { PrimaryButton } from "../components/Buttons";
 import { SectionHeading } from "../components/SectionHeading";
 import { ServiceCard } from "../components/Cards";
 import { Breadcrumbs } from "../components/Breadcrumbs";
-import { ServiceVisual } from "../components/ServiceVisual";
+import { EditorialIllustration } from "../components/EditorialIllustration";
 import { serviceGroups, specialistServices } from "../lib/serviceContent";
-import { detailedServices } from "../lib/serviceContent";
 
 export function ServicesOverviewPage() {
   return (
@@ -18,15 +17,15 @@ export function ServicesOverviewPage() {
           <Breadcrumbs current="Services" />
           <div className="services-overview-hero-grid">
             <div className="services-overview-copy">
-              <p className="eyebrow">Connected digital services</p>
-              <h1>The right digital support for your next step.</h1>
+              <p className="eyebrow">Website, marketing and software services</p>
+              <h1>What can we help your business do?</h1>
               <p>
-                Build a stronger online presence, reach the right audience or
-                make everyday work easier. Explore connected services shaped
-                around the needs of your business.
+                Get a website that explains what you do, help more people find
+                your business online, or make everyday work easier with
+                software. Explore our services and find a good place to start.
               </p>
               <div className="service-hero-actions">
-                <PrimaryButton to="/contact">Discuss Your Project</PrimaryButton>
+                <PrimaryButton to="/contact">Talk About Your Needs</PrimaryButton>
                 <Link className="text-link" to="#service-categories">
                   Explore services <ArrowRight size={16} aria-hidden="true" />
                 </Link>
@@ -41,16 +40,7 @@ export function ServicesOverviewPage() {
                 )}
               </div>
             </div>
-            <ServiceVisual
-              icon={Sparkles}
-              label="Digital tools working together"
-              variant="services"
-              metrics={[
-                { label: "Presence", value: "Websites", icon: detailedServices[0].icon },
-                { label: "Growth", value: "Marketing", icon: detailedServices[1].icon },
-                { label: "Operations", value: "Technology", icon: detailedServices[2].icon },
-              ]}
-            />
+            <EditorialIllustration kind="services" priority />
           </div>
         </PageContainer>
       </section>
@@ -58,9 +48,9 @@ export function ServicesOverviewPage() {
       <section className="service-category-section section-space" id="service-categories">
         <PageContainer>
           <SectionHeading
-            eyebrow="Three connected foundations"
-            title="Services to meet your business where it is."
-            description="Choose the area that fits your current priorities. We can also help you work out where to start."
+            eyebrow="Our main services"
+            title="Choose the help you need right now."
+            description="Explore website design, digital marketing and business technology. Not sure where to start? Tell us what you are trying to improve."
           />
           <div className="service-category-grid">
             {serviceGroups.map((group) => (
@@ -99,9 +89,9 @@ export function ServicesOverviewPage() {
         <PageContainer>
           <div className="section-topline">
             <SectionHeading
-              eyebrow="Specialist capabilities"
-              title="More focused solutions for specific needs."
-              description="Explore web application and automation work when your requirements call for something beyond a standard website or campaign."
+              eyebrow="Specialist services"
+              title="Custom web apps and automation."
+              description="When a standard website or tool is not enough, a custom web application or carefully chosen automation may help."
             />
             <span className="specialist-note">
               <Sparkles size={16} aria-hidden="true" /> Built around the workflow
@@ -124,8 +114,8 @@ export function ServicesOverviewPage() {
 
       <CTASection
         eyebrow="START WITH A CONVERSATION"
-        title="Not sure which service fits? Let’s work it out together."
-        description="Share the challenge you are trying to solve. We can discuss practical options and a sensible next step."
+        title="Not sure what your business needs?"
+        description="Tell us what is not working or what you would like to improve. We can talk through your options and a practical next step."
       />
     </>
   );

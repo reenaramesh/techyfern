@@ -14,6 +14,7 @@ import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton, SecondaryButton } from "../components/Buttons";
 import { SectionHeading } from "../components/SectionHeading";
 import { ServiceVisual } from "../components/ServiceVisual";
+import { getServiceContactPath } from "../lib/siteContact";
 import {
   getRelatedServices,
   getServiceByPath,
@@ -194,6 +195,7 @@ export function ServiceDetailPage() {
   if (!service) {
     throw new Error(`No service content configured for route: ${pathname}`);
   }
+  const contactPath = getServiceContactPath(service.enquiryCategory);
 
   return (
     <>
@@ -208,7 +210,7 @@ export function ServiceDetailPage() {
                 {service.introduction}
               </p>
               <div className="service-detail-actions">
-                <PrimaryButton to="/contact">Discuss Your Project</PrimaryButton>
+                <PrimaryButton to={contactPath}>Discuss Your Project</PrimaryButton>
                 <SecondaryButton to="/services/" icon>
                   Explore All Services
                 </SecondaryButton>
@@ -299,7 +301,7 @@ export function ServiceDetailPage() {
               title={service.benefitTitle}
               description={service.benefitDescription}
             />
-            <PrimaryButton to="/contact">Talk through your goals</PrimaryButton>
+            <PrimaryButton to={contactPath}>Talk through your goals</PrimaryButton>
           </div>
           <div className="service-benefit-list">
             {service.benefits.map((benefit) => (
@@ -318,6 +320,7 @@ export function ServiceDetailPage() {
       <ServiceFaq items={service.faqs} serviceName={service.shortName} />
       <RelatedServices paths={service.related} />
       <CTASection
+        contactTo={contactPath}
         eyebrow={`LET’S TALK ABOUT ${service.shortName.toUpperCase()}`}
         title="A good next step starts with a clear conversation."
         description="Tell us what you are trying to achieve. We can discuss your needs, practical options and a suitable scope."

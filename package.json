@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
+    "test": "node --test scripts/route-build.test.mjs",
     "test:routes": "node --test scripts/route-build.test.mjs",
     "typecheck": "tsc -b --pretty false"
   },
